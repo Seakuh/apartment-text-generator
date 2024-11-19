@@ -8,8 +8,8 @@ function App() {
     <LanguageProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/home-finder/" element={<LandingPage />} />
+          <Route path="/home-finder/chat" element={<Chat />} />
         </Routes>
       </Router>
     </LanguageProvider>
