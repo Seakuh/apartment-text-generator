@@ -1,0 +1,50 @@
+name: Deploy Content Guru Frontend
+
+on:
+  push:
+    branches:
+      - production # Deployment wird ausgelöst, wenn Änderungen auf main gepusht werden
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout des Repositories
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # 2. Wechsle ins Unterverzeichnis
+      - name: Navigate to Frontend Directoryac
+        run: cd apartment-text-generator
+
+      # 3. Node.js einrichten
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # 4. Abhängigkeiten installieren
+      - name: Install Dependencies
+        run: |
+          cd apartment-text-generator
+          npm install
+
+      # 5. Build erstellen
+      - name: Build Project
+        run: |
+          cd apartment-text-generator
+          npm run build
+
+      # 6. Deployment auf den FTP-Server
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: apartment-text-generator/dist/ # Der erstellte Build-Ordner
+          server-dir: home-finder/ # Subdirectory auf dem Server
+          keepalive: 300000 # Setzt die Verbindung auf 5 Minuten Inaktivität
+          log-level: verbose
+          dangerous-clean-slate: false # Entfernt nicht verwendete Dateien
