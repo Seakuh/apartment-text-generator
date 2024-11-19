@@ -21,7 +21,7 @@ const Statistics: React.FC = () => {
       </div>
       <div className="stat-item">
         <CountUp
-          end={4.8}
+          end={5.0}
           duration={2.5}
           decimals={1}
           className="stat-number"

@@ -4,6 +4,7 @@ import FeaturesSection from "./FeatureSection";
 import Footer from "./Footer";
 import Header from "./Header";
 import HeroSection from "./HeroSection";
+import HowItWorks from "./HowItWorks";
 import PricingSection from "./PricingSection";
 import Statistics from "./Statistic";
 
@@ -18,6 +19,7 @@ const LandingPage: React.FC = () => {
       <HeroSection setPrompt={setPrompt} />
       {/* Übergabe des Prompts an die EmailSection */}
       <EmailSection prompt={prompt} />
+      <HowItWorks />
       <Statistics />
       <FeaturesSection />
       <PricingSection />

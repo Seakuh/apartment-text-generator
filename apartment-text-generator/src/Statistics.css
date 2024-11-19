@@ -1,28 +1,50 @@
 .statistics {
-    display: flex;
-    justify-content: center;
-    width: 90%;
-    padding: 40px 20px;
-    background-color: var(--primary-white);
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-around; /* Gleichmäßige Verteilung der Elemente */
+  align-items: center; /* Zentrierung der Inhalte */
+  flex-wrap: wrap; /* Für Smartphones: Elemente umbrechen */
+  gap: 20px; /* Abstand zwischen den Elementen */
+  width: 90%;
+  padding: 40px 20px;
+  background-color: var(--primary-white);
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1 1 150px; /* Elemente passen sich dynamisch an */
+  max-width: 200px; /* Begrenzte Breite für größere Bildschirme */
+}
+
+.stat-number {
+  font-size: 2.5rem; /* Größere Zahlen für mehr Impact */
+  font-weight: bold;
+  color: var(--primary-black); /* Schwarz für besseren Kontrast */
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtiler Schatten für Zahlen */
+}
+
+.stat-item p {
+  font-size: 1rem;
+  color: #666; /* Grau für sekundären Text */
+  margin: 0;
+  line-height: 1.4; /* Lesbarkeit erhöhen */
+}
+
+/* Responsives Design */
+@media (max-width: 768px) {
+  .statistics {
+    flex-direction: column; /* Elemente untereinander anordnen */
+    gap: 30px; /* Mehr Abstand zwischen den Items */
   }
-  
-  .stat-item {
-    text-align: center;
-  }
-  
+
   .stat-number {
-    font-size: 2rem; /* Große Zahlen */
-    font-weight: bold;
-    color: #000; /* Schwarz für Kontrast */
-    margin-bottom: 10px;
-    font-family: 'Arial', sans-serif;
+    font-size: 2rem; /* Zahlen leicht verkleinern */
   }
-  
+
   .stat-item p {
-    font-size: 1rem;
-    color: #666; /* Grau für sekundären Text */
-    margin: 0;
+    font-size: 0.9rem; /* Sekundärtext anpassen */
   }
-  
+}

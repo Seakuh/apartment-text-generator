@@ -1,0 +1,86 @@
+.how-it-works {
+  padding: 40px 20px;
+  border-radius: 15px;
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.how-it-works h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.how-it-works p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.step {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: left;
+}
+
+.step-number {
+  font-size: 2rem;
+  color: #00aaff;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.extra-info {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.extra-info h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.extra-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.extra-info ul li {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.extra-info ul li::before {
+  content: "✔️";
+  font-size: 1.2rem;
+  align-self: center;
+  color: #00aaff;
+}
