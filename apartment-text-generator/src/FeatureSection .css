@@ -1,0 +1,22 @@
+.features-section {
+    background-color: var(--primary-white);
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .features-section h2 {
+    margin-bottom: 20px;
+    color: var(--primary-blue);
+  }
+  
+  .features-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .features-section li {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: var(--neutral-gray);
+  }
+  

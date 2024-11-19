@@ -1,0 +1,28 @@
+.statistics {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 20px;
+    background-color: var(--primary-white);
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 2rem; /* Große Zahlen */
+    font-weight: bold;
+    color: #000; /* Schwarz für Kontrast */
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .stat-item p {
+    font-size: 1rem;
+    color: #666; /* Grau für sekundären Text */
+    margin: 0;
+  }
+  

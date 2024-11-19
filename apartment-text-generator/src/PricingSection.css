@@ -1,0 +1,38 @@
+.pricing-section {
+    background-color: var(--neutral-beige);
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .pricing-section h2 {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+  }
+  
+  .pricing-table {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .pricing-card {
+    background-color: var(--primary-white);
+    border: 1px solid var(--neutral-gray);
+    border-radius: 5px;
+    padding: 20px;
+    width: 200px;
+  }
+  
+  .pricing-card.premium {
+    border-color: var(--secondary-green);
+  }
+  
+  .cta-button {
+    margin-top: 10px;
+    background-color: var(--secondary-green);
+    color: var(--primary-white);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
