@@ -1,0 +1,35 @@
+.footer {
+    width: 100%;
+    background-color: #f9f9f9; /* Dezente Hintergrundfarbe */
+    color: #555; /* Angenehmer Textkontrast */
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    border-top: 1px solid #ddd; /* Dezente Trennlinie */
+  }
+  
+  .footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer li {
+    display: inline;
+  }
+  
+  .footer a {
+    text-decoration: none;
+    color: #3DAFAC; /* Angenehmes Türkis passend zum Design */
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #BDC841; /* Primärfarbe als Hover-Effekt */
+  }
+  

@@ -12,6 +12,9 @@ const Footer: React.FC = () => {
         <li>
           <a href="/datenschutz">Datenschutz</a>
         </li>
+        <li>
+          <a href="/kontakt">Kontakt</a>
+        </li>
       </ul>
     </footer>
   );
