@@ -17,7 +17,12 @@
     font-family: "Dancing Script", cursive;
     font-optical-sizing: auto;
     font-weight: 700;
-    color: aliceblue;
+    color: #a787e6;
+    text-shadow: 
+    -1px -1px 0 #ffff, /* Oben links */
+    1px -1px 0 #ffff,  /* Oben rechts */
+    -1px 1px 0 #ffff,  /* Unten links */
+    1px 1px 0 #ffff;   /* Unten rechts */
   }
   
   

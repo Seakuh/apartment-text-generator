@@ -1,38 +1,152 @@
 .pricing-section {
-    background-color: var(--neutral-beige);
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-  .pricing-section h2 {
-    color: var(--primary-blue);
-    margin-bottom: 20px;
-  }
-  
-  .pricing-table {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
+  padding: 40px 20px;
+  background-color: var(--primary-light-grey);
+  text-align: center;
+}
+
+.pricing-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.pricing-description {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.pricing-table {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Für mobile Geräte */
+}
+
+.pricing-card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px;
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: scale(1.05); /* Vergrößert die Karte bei Hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00aaff;
+  margin-bottom: 20px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.features li {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.features li::before {
+  content: "✔️";
+  font-size: 1.2rem;
+  color: var(--primary-blue);
+  margin-right: 5px;
+}
+
+/* Premium Card Styling */
+.premium {
+  border: 2px solid #ffd700; /* Goldener Rahmen */
+  background: linear-gradient(135deg, #fff8e1, #ffffff);
+}
+
+.premium h3 {
+  color: #ffd700; /* Goldener Titel */
+}
+
+.premium .price {
+  color: #ffa500; /* Orangene Akzentfarbe */
+}
+
+.premium-button {
+  background-color: #ffd700;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.premium-button:hover {
+  background-color: #ffa500;
+  transform: scale(1.1);
+}
+
+/* CTA Buttons */
+.cta-button {
+  background-color: #00aaff;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: .2rem;
+}
+
+.cta-button:hover {
+  background-color: #0077cc;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .pricing-card {
-    background-color: var(--primary-white);
-    border: 1px solid var(--neutral-gray);
-    border-radius: 5px;
-    padding: 20px;
-    width: 200px;
+    max-width: none;
+    flex: 1 1 100%;
   }
-  
-  .pricing-card.premium {
-    border-color: var(--secondary-green);
-  }
-  
-  .cta-button {
-    margin-top: 10px;
-    background-color: var(--secondary-green);
-    color: var(--primary-white);
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-  }
-  
+}
+
+.premiumButton {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  padding: 10px 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #ff00ff, #00ffff, #ff6600);
+  background-size: 200% 200%;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff, 0 0 30px #ff6600;
+  animation: neonGlow 3s infinite linear, gradientShift 5s infinite alternate;
+  max-width: 90%; /* Keeps button within viewport width */
+}
+
+.premiumButton:hover {
+  box-shadow: 0 0 20px #00ffff, 0 0 30px #ff00ff, 0 0 40px #ff6600;
+  transform: scale(1.05);
+}
