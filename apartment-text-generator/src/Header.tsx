@@ -27,6 +27,9 @@ const Header: React.FC = () => {
       <div className="header-left">
         <img src="home_ginue_logo.png" alt="Logo" className="logo" />
       </div>
+      <div className="header-center dancing-script-headline">
+        <h1>Home Finder</h1>
+      </div>
       <div className="header-right">
         <button
           className={`language-button ${language === "de" ? "active" : ""}`}

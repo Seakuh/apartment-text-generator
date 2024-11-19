@@ -1,29 +1,46 @@
-import React, { useContext } from "react";
-import { useTranslation } from "react-i18next";
-import { AppContext } from "./context/AppContext"; // Für die Sprachsteuerung
+import React, { useEffect, useState } from "react";
 import "./HeroSection.css";
 
+const images = [
+  "home_picture_apartment_modern.webp",
+  "home_picture_apartment_berlin.webp",
+  "home_picture_apartment_munich.webp",
+  "home_picture_apartment_calm_stil.webp",
+  "home_picture_sweet_green.webp",
+  "home_picture_apartment_cologne.webp",
+  "home_picture_apartment_dusseldorf.webp",
+  "home_picture_apartment_hamburg.webp",
+  "home_picture_apartment_calm_stil.webp",
+  "home_picture_wg_hannover.webp",
+  "home_picture_wg_leipzig.webp",
+];
+
 const HeroSection: React.FC = () => {
-  const { prompt, setPrompt } = useContext(AppContext); // Zugriff auf den Prompt
-  const { t } = useTranslation(); // Für die Übersetzung
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000); // Bild wechselt alle 5 Sekunden
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <header className="hero-section">
+      <div
+        className="slideshow"
+        style={{ backgroundImage: `url(${images[currentImage]})` }}
+      ></div>
       <div className="overlay"></div>
       <div className="hero-content">
-        <h1>{t("findYourHome")}</h1>
-        <p>{t("heroSubtitle")}</p>
+        <h1>Finde dein Zuhause</h1>
+        <p>Wo deine Suche endet und dein neues Kapitel beginnt.</p>
         <form className="prompt-form">
           <input
             type="text"
-            placeholder={t("promptPlaceholder")}
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
+            placeholder="Was suchen Sie?"
             className="prompt-input"
           />
-          <button type="submit" className="prompt-button">
-            {t("startButton")}
-          </button>
         </form>
       </div>
     </header>

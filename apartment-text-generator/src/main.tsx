@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { AppProvider } from "./context/AppContext";
-import "./i18n"; // i18n muss hier importiert werden
+import "./i18n.ts"; // i18n muss hier importiert werden
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

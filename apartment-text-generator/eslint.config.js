@@ -24,13 +24,5 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
     },
-    overrides: [
-      {
-        files: ["src/en.ts", "src/de.ts"], // Dateien, die von bestimmten Regeln ausgeschlossen werden
-        rules: {
-          "prettier/prettier": "off", // Deaktiviert Prettier für diese Dateien
-        },
-      },
-    ],
   }
 );
