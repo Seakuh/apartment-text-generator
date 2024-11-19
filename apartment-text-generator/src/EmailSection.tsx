@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./EmailSection.css";
 
-const EmailSection: React.FC = () => {
+const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
+  const [email, setEmail] = useState("");
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Button clicked!"); // Hier kommt die API-Logik
+    console.log("Prompt:", prompt);
+    console.log("Email:", email);
+    // Hier kann die API-Logik für die Verarbeitung der Daten hinzugefügt werden
   };
 
   return (
     <section className="email-section">
-      <h2>Bleiben Sie informiert!</h2>
-      <p>
-        Melden Sie sich an, um die neuesten Informationen zu Ihrer Wohnungssuche
-        zu erhalten.
-      </p>
-      <form onSubmit={handleSubmit}>
-        <button type="submit" className="submitButton">
-          Jetzt starten
-        </button>
-      </form>
+      <div className="email-content">
+        <form onSubmit={handleSubmit} className="email-form">
+          <input
+            type="email"
+            placeholder="Ihre E-Mail-Adresse"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="email-input"
+            required
+          />
+          <button type="submit" className="submitButton">
+            Jetzt starten
+          </button>
+        </form>
+      </div>
     </section>
   );
 };

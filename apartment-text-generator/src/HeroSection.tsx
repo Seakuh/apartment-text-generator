@@ -15,9 +15,15 @@ const images = [
   "home_picture_wg_leipzig.webp",
 ];
 
-const HeroSection: React.FC = () => {
-  const [currentImage, setCurrentImage] = useState(0);
+interface HeroSectionProps {
+  setPrompt: React.Dispatch<React.SetStateAction<string>>; // Funktion zum Aktualisieren des Prompts
+}
 
+const HeroSection: React.FC<HeroSectionProps> = ({ setPrompt }) => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPrompt(e.target.value); // Aktualisiert den zentralen Prompt
+  };
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -40,6 +46,7 @@ const HeroSection: React.FC = () => {
             type="text"
             placeholder="Was suchen Sie?"
             className="prompt-input"
+            onChange={handleInputChange} // Ändert den zentralen Prompt
           />
         </form>
       </div>

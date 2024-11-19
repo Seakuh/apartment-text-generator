@@ -67,32 +67,4 @@
     transform: scale(1.2);
 
   }
-
-  .submitButton {
-    color: #fff;
-    background: linear-gradient(135deg, #ff00ff, #00ffff, #ff6600);
-    background-size: 200% 200%;
-    border: 2px solid #00ffff;
-    border-radius: 8px;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff, 0 0 30px #ff6600;
-    animation: neonGlow 3s infinite linear, gradientShift 5s infinite alternate;
-  }
-  
-  .submitButton:hover {
-    box-shadow: 0 0 20px #00ffff, 0 0 30px #ff00ff, 0 0 40px #ff6600;
-    transform: scale(1.05);
-  }
-  
-  @keyframes gradientShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 100% 50%;
-    }
-  }
   
