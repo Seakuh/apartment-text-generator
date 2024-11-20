@@ -120,3 +120,75 @@
     transform: translateY(-2px);
   }
   
+
+  .dialog-input textarea {
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none; /* Rahmen entfernen */
+    outline: none; /* Umrandung bei Fokus entfernen */
+    background-color: var(--light-gray); /* Optional: Hintergrundfarbe */
+  }
+  
+  .dialog-input textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+  }
+  
+  .dialog-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .dialog-input .send-button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative; /* Für Animation */
+    box-shadow: 0 0 10px var(--primary-blue), 0 0 20px var(--primary-blue), 0 0 30px rgba(0, 123, 255, 0.5);
+    animation: neon-glow 2s infinite alternate; /* Animation für kontinuierlichen Glanz */
+  }
+  
+  .dialog-input .send-button:hover {
+    background-color: #0056b3;
+    animation: neon-glow-hover 1s infinite alternate; /* Optional: Schnelleres Leuchten bei Hover */
+  }
+  
+  .dialog-input .send-button:active {
+    transform: scale(0.9);
+  }
+
+  .dialog-input textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+  }
+  
+  /* Glüh-Effekt */
+  @keyframes neon-glow {
+    0% {
+      box-shadow: 0 0 10px var(--primary-blue), 0 0 20px var(--primary-blue), 0 0 30px rgba(0, 123, 255, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 20px var(--primary-blue), 0 0 30px var(--primary-blue), 0 0 50px rgba(0, 123, 255, 0.8);
+    }
+  }
+  
+  /* Optional: Schnellerer Glow bei Hover */
+  @keyframes neon-glow-hover {
+    0% {
+      box-shadow: 0 0 20px var(--primary-blue), 0 0 30px rgba(0, 123, 255, 0.8);
+    }
+    100% {
+      box-shadow: 0 0 30px var(--primary-blue), 0 0 50px rgba(0, 123, 255, 1);
+    }
+  }
+  
