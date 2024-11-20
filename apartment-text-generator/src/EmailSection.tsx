@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import "./EmailSection.css";
+import PackageSelection from "./PackagesSelection/PackagesSelection";
 
 const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
   const [email, setEmail] = useState("");
+  const [showPackages, setShowPackages] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Prompt:", prompt);
-    console.log("Email:", email);
-    // Hier kann die API-Logik für die Verarbeitung der Daten hinzugefügt werden
+    if (email) {
+      console.log(email);
+      
+      setShowPackages(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setShowPackages(false);
   };
 
   return (
@@ -28,6 +36,7 @@ const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
           </button>
         </form>
       </div>
+      {showPackages && <PackageSelection email={email} onClose={handleCloseModal} />}
     </section>
   );
 };

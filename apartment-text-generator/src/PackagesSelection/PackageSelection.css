@@ -1,0 +1,144 @@
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .package-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #3dafac;
+    text-align: center;
+  }
+  
+  /* Grid and Card Styles */
+  .package-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: nowrap; /* Pakete bleiben nebeneinander */
+  }
+  
+  .package-card {
+    background: #fff;
+    border: 4px solid #ddd8b2;
+    border-radius: 16px;
+    width: 280px;
+    height: 400px; /* Höhere Pakete */
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: #3dafac; /* Neon-Blauer Rand */
+  }
+  
+  .package-card.business {
+    background: #f8f8f8; /* Silber */
+    border-color: #c0c0c0;
+  }
+  
+  .package-card.student {
+    background: #fff4e5; /* Orange */
+    border-color: #f5b461;
+  }
+  
+  .package-card.basic {
+    background: #e7f3ff; /* Blau */
+    border-color: #80c1f1;
+  }
+  
+  .package-card.free {
+    background: #f4e7ff; /* Lila */
+    border-color: #d7aefb;
+  }
+  
+  .package-card h3 {
+    font-size: 1.4rem;
+    color: #3dafac;
+    margin-bottom: 0.5rem;
+  }
+  
+  .package-price {
+    font-size: 1.8rem;
+    color: #3dafac;
+    font-weight: bold;
+    margin: 1rem 0;
+  }
+  
+  /* Benefits List */
+  .package-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    color: #333;
+    text-align: left;
+  }
+  
+  .package-card ul li {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .package-card ul li::before {
+    content: "✔️";
+    margin-right: 0.5rem;
+    color: #bdc841;
+  }
+  
+  /* Select Button */
+  .select-button {
+    background: #3dafac;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: absolute;
+    bottom: 1.5rem; /* Immer unten */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .select-button:hover {
+    background: #2b8b85;
+  }
+  
