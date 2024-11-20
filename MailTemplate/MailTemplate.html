@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Finder Email</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        background-color: #bdc841;
+        font-family: "Dancing Script", cursive;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .content {
+        padding: 20px;
+        line-height: 1.8;
+      }
+      .content h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+      .content p {
+        margin-bottom: 15px;
+      }
+      .cta-button {
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: #3dafac;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .footer {
+        background-color: #ddd8b2;
+        color: #666;
+        text-align: center;
+        padding: 15px;
+        font-size: 12px;
+      }
+      .footer a {
+        color: #3dafac;
+        text-decoration: none;
+      }
+      .list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .list li {
+        margin-bottom: 10px;
+      }
+      .list a {
+        color: #3dafac;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .list a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <!-- Header Section -->
+      <div class="header">🏠 Home Finder</div>
+
+      <!-- Content Section -->
+      <div class="content">
+        <h2>Hallo, {{username}}!</h2>
+        Wir freuen uns, Ihnen mitteilen zu können, dass wir eine
+        maßgeschneiderte E-Mail für Ihre Wohnungssuche erstellt haben – präzise
+        abgestimmt auf Ihre individuellen Wünsche und Eingaben. Mit dieser
+        sorgfältig erstellten Nachricht halten Sie nun alle Werkzeuge in der
+        Hand, die Sie benötigen, um sich optimal und überzeugend auf Ihre
+        Traumwohnung zu bewerben. 💌 Sie haben einen wichtigen und genau
+        richtigen Schritt getan. Ihre Entscheidung, diesen Weg zu gehen, zeigt
+        Weitsicht und Entschlossenheit. Seien Sie sicher: Ihre Bewerbung ist
+        bestens vorbereitet, und wir sind überzeugt, dass Sie damit erfolgreich
+        sein werden. Sollten Sie weitere Unterstützung benötigen, stehen wir
+        jederzeit gerne an Ihrer Seite. Viel Erfolg bei der Suche nach Ihrem
+        neuen Zuhause! 🏠✨
+      </div>
+
+      <!-- Listings Section -->
+      <div class="content">
+        <h2>Ihre passenden Anzeigen:</h2>
+        <ul class="list">
+          {{#each listings}}
+          <li><a href="{{this.link}}" target="_blank">{{this.title}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <!-- Platforms Section -->
+      <div class="content">
+        <h2>Plattformen, auf denen Sie sich bewerben können:</h2>
+        <ul class="list">
+          <li>
+            <a href="https://www.wg-gesucht.de" target="_blank">WG-Gesucht</a>
+          </li>
+          <li>
+            <a href="https://www.immobilienscout24.de" target="_blank"
+              >Immobilienscout24</a
+            >
+          </li>
+          <li>
+            <a href="https://www.immowelt.de" target="_blank">Immowelt</a>
+          </li>
+          <li>
+            <a href="https://www.ebay-kleinanzeigen.de" target="_blank"
+              >eBay Kleinanzeigen</a
+            >
+          </li>
+          <li><a href="https://www.immonet.de" target="_blank">Immonet</a></li>
+          <li>
+            <a href="https://www.wohnungsboerse.net" target="_blank"
+              >Wohnungsbörse</a
+            >
+          </li>
+          <li>
+            <a href="https://www.studenten-wg.de" target="_blank"
+              >Studenten-WG</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="content">
+        <a href="{{action_link}}" class="cta-button">Jetzt mehr erfahren</a>
+      </div>
+
+      <!-- Footer Section -->
+      <div class="footer">
+        <p>
+          Vielen Dank, dass Sie Home Finder verwenden! Bei Fragen schreiben Sie
+          uns unter
+          <a href="mailto:support@homefinder.com">support@homefinder.com</a>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
