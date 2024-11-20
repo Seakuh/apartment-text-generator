@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Header from "../Header";
 import { sendMessage } from "../services/chatBotService";
 import "./ChatBot.css";
+import UserInfo from "./components/UserInfo/UserInfo";
+import Dialog from "./components/Dialog/Dialog";
 
 const ChatBot: React.FC = () => {
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>(
@@ -30,59 +32,17 @@ const ChatBot: React.FC = () => {
     setLoading(false);
   };
 
-  const handleOnboarding = (answer: string) => {
-    if (onboardingStep < onboardingQuestions.length - 1) {
-      setMessages((prev) => [
-        ...prev,
-        { text: answer, isUser: true },
-        { text: onboardingQuestions[onboardingStep], isUser: false },
-      ]);
-      setOnboardingStep((prev) => prev + 1);
-    } else {
-      setOnboarding(false);
-      setMessages((prev) => [
-        ...prev,
-        { text: answer, isUser: true },
-        { text: "Danke! Lass uns mit dem Chat starten.", isUser: false },
-      ]);
-    }
-  };
-
   return (
-    <div>
+    <div className="chatbot-container">
       <Header />
-      <div className="chatbot-container">
-        <div className="chatbot-messages">
-          {messages.map((msg, index) => (
-            <div
-              key={index}
-              className={`message ${
-                msg.isUser ? "user-message" : "bot-message"
-              }`}
-            >
-              {msg.text}
-            </div>
-          ))}
-          {loading && (
-            <div className="loading">
-              <span>.</span>
-              <span>.</span>
-              <span>.</span>
-            </div>
-          )}
-        </div>
-        <div className="chatbot-input">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Nachricht eingeben..."
-          />
-          <button onClick={handleSendMessage} className="send-button">
-            <i className="arrow-up"></i>
-          </button>
-        </div>
-      </div>
+      <UserInfo initialData={{
+        name: "",
+        location: "",
+        age: 0
+      }} onUpdate={function (data: { name: string; location: string; age: number; }): void {
+        throw new Error("Function not implemented.");
+      } }></UserInfo>
+      <Dialog></Dialog>
     </div>
   );
 };

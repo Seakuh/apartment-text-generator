@@ -1,0 +1,37 @@
+.user-info {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .edit-form input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .edit-form button {
+    background-color: white;
+    color: var(--primary-blue);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .display-info p {
+    margin: 5px 0;
+  }
+  
+  .display-info button {
+    background-color: white;
+    color: var(--primary-blue);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
