@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../Header";
-import { sendMessage } from "../services/chatBotService";
+import { sendMessage } from "./services/chatBotService";
 import "./ChatBot.css";
 import UserInfo from "./components/UserInfo/UserInfo";
 import Dialog from "./components/Dialog/Dialog";

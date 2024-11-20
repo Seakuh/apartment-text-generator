@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Dialog.css";
-import { sendMessage } from "../../../services/chatBotService";
+import { sendMessage } from "../../services/chatBotService";
 
 const Dialog: React.FC = () => {
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>(
