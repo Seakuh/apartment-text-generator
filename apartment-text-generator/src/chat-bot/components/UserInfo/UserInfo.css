@@ -1,7 +1,6 @@
 .user-info {
     background-color: var(--primary-blue);
     color: white;
-    padding: 15px;
     border-radius: 10px 10px 0 0;
   }
   
@@ -34,4 +33,11 @@
     padding: 10px 20px;
     cursor: pointer;
   }
-  
+
+
+  .user-info {
+  background: linear-gradient(135deg, var(--primary-blue), #0056b3);
+  padding: 15px;
+  border-radius: 0 0 50% 50% / 0 0 10% 10%;
+  text-align: center;
+}
