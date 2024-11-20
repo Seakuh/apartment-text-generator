@@ -18,7 +18,7 @@
   }
   
   .message {
-    padding: 10px;
+    padding: 1rem;
     margin: 5px 0;
     border-radius: 3rem;
     max-width: 70%;
@@ -33,9 +33,9 @@
   
   .bot-message {
     background-color: white;
-    color: black;
+    color: var(--primary-blue);
     margin-right: auto;
-    border: 2px solid var(--primary-blue);
+    border: 1px solid var(--primary-blue);
   }
   
   .loading {
