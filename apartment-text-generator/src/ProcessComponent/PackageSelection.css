@@ -1,35 +1,22 @@
-/* Modal Styles */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+  .package-grid {
     display: flex;
+    gap: 2rem;
     justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    flex-wrap: nowrap; /* Pakete bleiben nebeneinander */
+    overflow-x: auto; /* Ermöglicht horizontales Scrollen */
+    padding-bottom: 1rem;
+    scrollbar-width: thin; /* Firefox: Dünne Scrollbar */
+    scrollbar-color: #b0b0b0 transparent; /* Firefox: Graue Scrollbar */
+  }
+
+  .package-container{
   }
   
   .modal-content {
-    background: white;
-    border-radius: 16px;
     padding: 2rem;
-    width: 90%;
     max-width: 1000px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     position: relative;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
   }
   
   .package-title {
@@ -38,31 +25,42 @@
     color: #3dafac;
     text-align: center;
   }
-  
-  /* Grid and Card Styles */
   .package-grid {
     display: flex;
     gap: 2rem;
-    justify-content: center;
-    flex-wrap: nowrap; /* Pakete bleiben nebeneinander */
-  }
-  
-  .package-card {
+    justify-content: flex-start; /* Karten linksbündig anzeigen */
+    padding: 2rem; /* Platz oben, unten, und seitlich */
+    overflow-x: auto; /* Horizontales Scrollen erlauben */
+    scrollbar-width: thin; /* Dünne Scrollbar für Firefox */
+    scrollbar-color: #b0b0b0 transparent; /* Farbe der Scrollbar (Firefox) */
+}
+
+.package-grid::-webkit-scrollbar {
+    height: 8px; /* Scrollbar-Höhe für Webkit-Browser */
+}
+
+.package-grid::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 69%); /* Farbe der Scrollbar */
+    border-radius: 4px; /* Abgerundete Scrollbar */
+}
+
+.package-card {
+    flex: 0 0 auto; /* Karten behalten feste Breite */
     background: #fff;
     border: 4px solid #ddd8b2;
     border-radius: 16px;
-    width: 280px;
-    height: 400px; /* Höhere Pakete */
-    padding: 1.5rem;
+    width: 130px;
+    height: 420px;
+    padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     cursor: pointer;
     position: relative;
-  }
-  
+}
+
   .package-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     border-color: #3dafac; /* Neon-Blauer Rand */
   }
@@ -115,6 +113,12 @@
     display: flex;
     align-items: center;
   }
+
+  .package-card.selected {
+    transform: scale(1.05);
+    border-color: #bd42f5; /* Lila Umrandung für ausgewählte Karte */
+    box-shadow: 0 0 15px rgba(189, 66, 245, 0.7);
+  }
   
   .package-card ul li::before {
     content: "✔️";
@@ -130,6 +134,7 @@
     padding: 0.8rem 1.2rem;
     border-radius: 8px;
     font-size: 1rem;
+    width: 80%;
     cursor: pointer;
     transition: background 0.3s;
     position: absolute;
@@ -142,3 +147,5 @@
     background: #2b8b85;
   }
   
+
+  /* Mobile Anpassungen */
