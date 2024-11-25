@@ -1,7 +1,6 @@
-import dotenv from "dotenv";
-dotenv.config();
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
-const API_URL = import.meta.env.VITE_API_URL;
+console.log(`Frontend API URL: ${API_URL}`);
 
 export async function handleUserUpdate(data: {
   name: string;

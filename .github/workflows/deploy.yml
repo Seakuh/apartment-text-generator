@@ -3,7 +3,7 @@ name: Deploy Content Guru Frontend
 on:
   push:
     branches:
-      - production # Deployment wird ausgelöst, wenn Änderungen auf main gepusht werden
+      - production # Deployment wird ausgelöst, wenn Änderungen auf production gepusht werden
 
 jobs:
   deploy:
@@ -14,29 +14,25 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # 2. Wechsle ins Unterverzeichnis
-      - name: Navigate to Frontend Directoryac
-        run: cd apartment-text-generator
-
-      # 3. Node.js einrichten
+      # 2. Node.js einrichten
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      # 4. Abhängigkeiten installieren
+      # 3. Abhängigkeiten installieren
       - name: Install Dependencies
         run: |
           cd apartment-text-generator
           npm install
 
-      # 5. Build erstellen
+      # 4. Build erstellen mit Umgebungsvariablen
       - name: Build Project
         run: |
           cd apartment-text-generator
-          npm run build
+          VITE_API_URL=${{ secrets.VITE_API_URL }} npm run build
 
-      # 6. Deployment auf den FTP-Server
+      # 5. Deployment auf den FTP-Server
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
