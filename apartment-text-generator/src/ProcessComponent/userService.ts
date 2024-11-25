@@ -5,7 +5,7 @@ export const sendUserData = async (
 ) => {
   try {
     const response = await fetch(
-      "https://guruhub-ai.com/home-finder/api/new-user-process", // Verwende die korrekte HTTPS-Domain und Route
+      "https://guruhub-ai.com/home-finder/users/new-user-process", // Verwende die korrekte HTTPS-Domain und Route
       {
         method: "POST",
         headers: {
