@@ -26,7 +26,7 @@ const Header: React.FC = () => {
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <div className="header-left">
-        <Link to="home-finder/chat-bot">
+        <Link to="/chat-bot">
           <img src="home_ginue_logo.png" alt="Logo" className="logo" />
         </Link>
       </div>
