@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next"; // Import von react-i18next
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import { AppContext } from "./context/AppContext";
 
@@ -8,7 +8,6 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage } = useContext(AppContext);
   const { i18n } = useTranslation(); // Zugriff auf i18n
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,12 +26,9 @@ const Header: React.FC = () => {
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <div className="header-left">
-        <img
-          src="home_ginue_logo.png"
-          alt="Logo"
-          className="logo"
-          onClick={() => navigate("/chat-bot")}
-        />
+        <Link to="home-finder/chat-bot">
+          <img src="home_ginue_logo.png" alt="Logo" className="logo" />
+        </Link>
       </div>
       <div className="header-center dancing-script-headline">
         <h1>Home Finder</h1>
