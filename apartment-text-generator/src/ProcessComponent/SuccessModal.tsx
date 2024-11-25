@@ -15,6 +15,14 @@ const SuccessModal: React.FC = () => {
         <p className="success-instruction">
           👉 Schau in dein E-Mail-Postfach, um dein Paket abzuholen!
         </p>
+        <a
+          href="https://mail.google.com" // Standard-Link zu Gmail
+          target="_blank"
+          rel="noopener noreferrer"
+          className="email-link"
+        >
+          📬 Zu meinen E-Mails
+        </a>
         <div className="confetti"></div>
       </div>
     </div>
