@@ -4,13 +4,16 @@ export const sendUserData = async (
   packageId: string
 ) => {
   try {
-    const response = await fetch("http://localhost:3000/api/new-user-process", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, prompt, packageId }),
-    });
+    const response = await fetch(
+      "http://37.27.41.23:3000/api/new-user-process",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, prompt, packageId }),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
