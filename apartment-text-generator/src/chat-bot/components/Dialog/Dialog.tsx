@@ -1,39 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Dialog.css";
-import { sendMessage } from "../../services/chatBotService";
 
-const Dialog: React.FC = () => {
-  const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>(
-    []
-  );
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [onboarding, setOnboarding] = useState(true);
-  const [onboardingStep, setOnboardingStep] = useState(0);
+// Definieren der Props für Dialog
+interface DialogProps {
+  messages: { text: string; isUser: boolean }[];
+  onSend: (message: string) => Promise<void>;
+  loading: boolean;
+}
 
-  const onboardingQuestions = [
-    "Wie alt bist du?",
-    "Wohin möchtest du ziehen?",
-    "Möchtest du uns etwas über deine Präferenzen sagen?",
-  ];
-
-  const handleOnboarding = (answer: string) => {
-    if (onboardingStep < onboardingQuestions.length - 1) {
-      setMessages((prev) => [
-        ...prev,
-        { text: answer, isUser: true },
-        { text: onboardingQuestions[onboardingStep], isUser: false },
-      ]);
-      setOnboardingStep((prev) => prev + 1);
-    } else {
-      setOnboarding(false);
-      setMessages((prev) => [
-        ...prev,
-        { text: answer, isUser: true },
-        { text: "Danke! Lass uns mit dem Chat starten.", isUser: false },
-      ]);
-    }
-  };
+const Dialog: React.FC<DialogProps> = ({ messages, onSend, loading }) => {
+  const [input, setInput] = React.useState("");
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -43,33 +19,25 @@ const Dialog: React.FC = () => {
       e.currentTarget.style.height = `${e.currentTarget.scrollHeight}px`; // Dynamische Größe
     }
   };
-  
+
   const handleSendMessage = async () => {
     if (!input.trim()) return;
-  
+
     // Reset textarea height after sending
     const textarea = document.querySelector("textarea");
     if (textarea) textarea.style.height = "auto";
-  
-    const newMessage = { text: input, isUser: true };
-    setMessages((prev) => [...prev, newMessage]);
+
+    await onSend(input); // Nachricht senden
     setInput("");
-    setLoading(true);
-  
-    const response = await sendMessage(input);
-    setMessages((prev) => [...prev, { text: response, isUser: false }]);
-    setLoading(false);
   };
-  
+
   return (
     <div className="dialog-container">
       <div className="dialog-messages">
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`message ${
-              msg.isUser ? "user-message" : "bot-message"
-            }`}
+            className={`message ${msg.isUser ? "user-message" : "bot-message"}`}
           >
             {msg.text}
           </div>
@@ -87,7 +55,7 @@ const Dialog: React.FC = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Wie koennen wir dir helfen?"
+          placeholder="Wie können wir dir helfen?"
           rows={1}
         />
         <button onClick={handleSendMessage} className="send-button">
