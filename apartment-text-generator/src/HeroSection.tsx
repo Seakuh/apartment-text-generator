@@ -40,7 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ setPrompt }) => {
       <div className="overlay"></div>
       <div className="hero-content">
         <h1>Wir finden dein Zuhause</h1>
-        <p>Wo deine Suche endet und dein neues Kapitel beginnt.</p>
+        {/* <p>Wo deine Suche endet und dein neues Kapitel beginnt.</p> */}
         {/* <form className="prompt-form">
           <input
             type="text"
