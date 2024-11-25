@@ -3,13 +3,14 @@ import PackagesSelection from "./PackagesSelection";
 import "./ProcessComponent.css";
 import PromptComponent from "./PromptComponent";
 import SuccessModal from "./SuccessModal";
+import { sendUserData } from "./userService";
 
 const ProcessComponent: React.FC<{ email: string; onClose: () => void }> = ({
   email,
   onClose,
 }) => {
   const [promptData, setPromptData] = useState("");
-  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+  const [selectedPackage, setSelectedPackage] = useState<string>("basic");
   const [promptError, setPromptError] = useState(false);
   const [packageError, setPackageError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -36,6 +37,7 @@ const ProcessComponent: React.FC<{ email: string; onClose: () => void }> = ({
     try {
       // Hier könnte die Funktion sendUserData aufgerufen werden
       console.log("Server response:", email, promptData, selectedPackage);
+      sendUserData(email, promptData, selectedPackage);
       setShowSuccess(true); // Zeigt das SuccessModal an
 
       // Schließt das Modal nach 3 Sekunden, nachdem der SuccessModal angezeigt wurde
