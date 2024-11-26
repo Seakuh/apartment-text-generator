@@ -60,6 +60,9 @@ const ProcessComponent: React.FC<{ email: string; onClose: () => void }> = ({
             className="modal-content"
             onClick={(e) => e.stopPropagation()} // Verhindert Schließen durch Klick auf Modal
           >
+            <button className="close-button" onClick={onClose}>
+              ✖
+            </button>
             <h2 className="modal-title">Dein Profil erstellen</h2>
             <div className="prompt-and-packages">
               <div className={`prompt-container ${promptError ? "error" : ""}`}>

@@ -11,18 +11,24 @@
     z-index: 1000;
     overflow-y: auto; /* Ermöglicht Scrollen im Modal */
     padding: 1rem; /* Platz für Inhalte */
+    
   }
   
   .modal-content {
     background: white;
     border-radius: 16px;
     width: 90%;
-    max-width: 1000px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    position: relative;
     display: flex;
     flex-direction: column;
   }
+
+  @media (min-width: 1280px) and (max-width: 1920px) and (min-height: 720px) {
+    .modal-content {
+    transform: scale(0.61);
+    }
+  }
+
   
   .modal-title {
     font-size: 1.8rem;
@@ -101,6 +107,25 @@
   .submit-button:active {
     transform: scale(0.95); /* Button leicht verkleinern bei Klick */
   }
+
+  .close-button {
+    position: absolute; /* Bleibt sichtbar beim Scrollen */
+    top: 5rem; /* Abstand von oben */
+    right: 5rem; /* Abstand von rechts */
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #3dafac; /* Passende Farbe zum Design */
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+    z-index: 1001; /* Sicherstellen, dass es über dem Modal-Inhalt liegt */
+    float: right; /* Rechts ausrichten */
+  }
+  
+  .close-button:hover {
+    transform: scale(1.2);
+    color: #1efff8; /* Farbänderung beim Hover */
+  }
   
   @keyframes gradient-move {
     0% {
@@ -121,5 +146,16 @@
       padding: 0; /* Kein zusätzlicher Platz */
       align-items: flex-start; /* Modal oben ausrichten */
 
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .close-button {
+    position: absolute; /* Bleibt sichtbar beim Scrollen */
+
+    font-size: 2rem; /* Kleinere Größe für Mobilgeräte */
+    top: 3.5rem; /* Etwas mehr Abstand bei kleinen Bildschirmen */
+    right: 2.5rem;
   }
 }
