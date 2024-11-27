@@ -23,6 +23,7 @@ const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
     <section className="email-section">
       <div className="email-content">
         <h2 className="email-prompt">{prompt}</h2>
+
         <form onSubmit={handleSubmit} className="email-form">
           <input
             type="email"
@@ -36,6 +37,10 @@ const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
             Jetzt starten
           </button>
         </form>
+        <p>
+          📧 Schreib Uns hier deine Email - Wir entwickeln ein passendes Packet
+          für dich
+        </p>
       </div>
       {processComponent && (
         <div className="modal-overlay">
