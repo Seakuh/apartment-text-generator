@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CtaComponent from "./CtaComponent";
 import EmailSection from "./EmailSection";
 import FeaturesSection from "./FeatureSection";
 import Footer from "./Footer";
@@ -19,6 +20,7 @@ const LandingPage: React.FC = () => {
       <HeroSection setPrompt={setPrompt} />
       {/* Übergabe des Prompts an die EmailSection */}
       <EmailSection prompt={prompt} />
+      <CtaComponent />
       <HowItWorks />
       <Statistics />
       <FeaturesSection />
