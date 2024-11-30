@@ -31,6 +31,7 @@
   }
   
   .header-left .logo {
+    margin-top: 1rem;
     width: 60px;
     height: auto;
     animation: shine 3s infinite; /* Shine-Effekt */

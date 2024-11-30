@@ -1,0 +1,81 @@
+
+.dashboard-container {
+  padding: 2rem;
+  background: var(--dark-bg);
+  color: var(--primary-gray); /* Primärgrau aus der Root-Variable */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.grid {
+  display: flex; /* Flexbox statt Grid */
+  flex-wrap: wrap; /* Umbrüche bei kleinen Bildschirmen */
+  gap: 1.5rem;
+  justify-content: center; /* Zentriert Karten */
+  width: 100%; /* Volle Breite */
+  margin-top: 2rem;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--card-bg); /* Kartenhintergrund */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  border: 2px solid transparent;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  flex: 0 1 calc(25% - 1rem); /* Flexible Breite */
+  max-width: 300px; /* Maximale Kartenbreite */
+  min-width: 200px; /* Minimale Kartenbreite */
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+  border-radius: 16px;
+  filter: blur(8px);
+  z-index: 0;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.card .emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  z-index: 1;
+  position: relative;
+  color: var(--primary-gray);
+  text-shadow: 0 0 10px var(--neon-pink), 0 0 10px var(--neon-cyan);
+}
+
+.card p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400; /* Sanftere Schrift */
+  z-index: 1;
+  position: relative;
+  color: var(--primary-gray); /* Verwendung des sanften Grautons */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.3px; /* Dezenter Buchstabenabstand */
+}

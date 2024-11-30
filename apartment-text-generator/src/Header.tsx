@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next"; // Import von react-i18next
 import { Link } from "react-router-dom";
 import "./Header.css";
-import { AppContext } from "./context/AppContext";
+import { useUser } from "./context/UserProvider";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { language, setLanguage } = useContext(AppContext);
+  const { language, setLanguage } = useUser(); // Verwende useUser statt AppContext
   const { i18n } = useTranslation(); // Zugriff auf i18n
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Header: React.FC = () => {
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <div className="header-left">
-        <Link to="home-finder/chat-bot">
+        <Link to="/home-finder/">
           <img src="home_ginue_logo.png" alt="Logo" className="logo" />
         </Link>
       </div>
