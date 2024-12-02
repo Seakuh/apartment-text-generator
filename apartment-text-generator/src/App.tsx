@@ -7,6 +7,7 @@ import LandingPage from "./Landingpage";
 import { LanguageProvider } from "./LanguageContext";
 import Layout from "./Layout";
 import LoginScreen from "./Login/LoginScreen";
+import User from "./User/User";
 
 function App() {
   return (
@@ -16,8 +17,10 @@ function App() {
           <Route path="/home-finder" element={<Layout />}>
             <Route index path="/home-finder/home" element={<Dashboard />} />
             <Route path="/home-finder/" element={<LandingPage />} />
+            <Route path="/home-finder/login" element={<LoginScreen />} />
             <Route path="/home-finder/chat" element={<Chat />} />
             <Route path="/home-finder/chat-bot" element={<ChatBot />} />
+            <Route path="/home-finder/user" element={<User />} />
             <Route path="/home-finder/dashboard" element={<Dashboard />} />
             <Route
               path="/home-finder/generate-message"
