@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_URL = "http://localhost:3000";
 
 console.log(`Frontend API URL: ${API_URL}`);
 
@@ -7,7 +7,7 @@ export async function handleUserUpdate(data: {
   location: string;
   age: number;
 }) {
-  await fetch(`${API_URL}/user/update`, {
+  await fetch(`${API_URL}/home-finder/user/update`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -15,7 +15,7 @@ export async function handleUserUpdate(data: {
 }
 
 export async function sendMessage(message: string): Promise<string> {
-  const response = await fetch(`${API_URL}/chatbot/send`, {
+  const response = await fetch(`${API_URL}/home-finder/chatbot/send`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

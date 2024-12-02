@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getUserIdFromToken } from "../context/authService";
 import { fetchUserContext, updateUserField } from "./service";
 import "./User.css";
@@ -8,10 +9,13 @@ const User: React.FC = () => {
   const [originalContext, setOriginalContext] = useState<any>({});
   const [loading, setLoading] = useState(true);
   const userId = getUserIdFromToken();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!userId) {
       console.error("User not authenticated");
+      navigate("/home-finder/login"); // Weiterleitung zum Login
+
       return;
     }
 
@@ -27,7 +31,7 @@ const User: React.FC = () => {
       }
     };
     loadContext();
-  }, [userId]);
+  }, [navigate, userId]);
 
   const handleFieldChange = (field: string, value: any) => {
     setContext((prev) => ({ ...prev, [field]: value }));

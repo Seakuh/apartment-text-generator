@@ -1,21 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../context/UserProvider";
 import "./Dashboard.css";
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
-  const { user, isLoading } = useUser(); // Zugriff auf Ladezustand und Nutzer
-
-  useEffect(() => {
-    if (!isLoading && !user) {
-      navigate("/home-finder/login"); // Weiterleitung zum Login
-    }
-  }, [isLoading, user, navigate]);
-
-  if (isLoading) {
-    return <div>Loading...</div>; // Ladeanzeige während der Initialisierung
-  }
 
   const apps = [
     {
@@ -30,7 +18,7 @@ const Dashboard: React.FC = () => {
     },
     { emoji: "🏠", label: "Meine Cards", route: "/home-finder/my-homes" },
     { emoji: "👤", label: "Profil", route: "/home-finder/user" },
-    { emoji: "💡", label: "Chat Bot", route: "/home-finder/chat" },
+    { emoji: "💡", label: "Chat Bot", route: "/home-finder/chat-bot" },
   ];
 
   return (
