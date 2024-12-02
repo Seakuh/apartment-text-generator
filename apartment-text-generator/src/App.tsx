@@ -2,8 +2,10 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Chat from "./Chat";
 import ChatBot from "./chat-bot/ChatBot";
 import Dashboard from "./Dashboard/Dashboard";
+import GenerateText from "./Dashboard/GenerateText/GenerateText";
 import LandingPage from "./Landingpage";
 import { LanguageProvider } from "./LanguageContext";
+import Layout from "./Layout";
 import LoginScreen from "./Login/LoginScreen";
 
 function App() {
@@ -11,11 +13,18 @@ function App() {
     <LanguageProvider>
       <Router>
         <Routes>
-          <Route path="/home-finder/" element={<LandingPage />} />
-          <Route path="/home-finder/chat" element={<Chat />} />
-          <Route path="/home-finder/chat-bot" element={<ChatBot />} />
+          <Route path="/home-finder" element={<Layout />}>
+            <Route index path="/home-finder/home" element={<Dashboard />} />
+            <Route path="/home-finder/" element={<LandingPage />} />
+            <Route path="/home-finder/chat" element={<Chat />} />
+            <Route path="/home-finder/chat-bot" element={<ChatBot />} />
+            <Route path="/home-finder/dashboard" element={<Dashboard />} />
+            <Route
+              path="/home-finder/generate-message"
+              element={<GenerateText />}
+            />
+          </Route>
           <Route path="/home-finder/login" element={<LoginScreen />} />
-          <Route path="/home-finder/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </LanguageProvider>

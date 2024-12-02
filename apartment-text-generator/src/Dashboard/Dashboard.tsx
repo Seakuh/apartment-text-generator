@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserProvider";
-import Header from "../Header";
 import "./Dashboard.css";
 
 const Dashboard: React.FC = () => {
@@ -31,13 +30,23 @@ const Dashboard: React.FC = () => {
     },
     { emoji: "🏠", label: "Meine Häuser", route: "/home-finder/my-homes" },
     { emoji: "👤", label: "Profil", route: "/home-finder/profile" },
+    { emoji: "💡", label: "Chat Bot", route: "/home-finder/chat" },
   ];
 
   return (
     <div>
-      <Header />
       <div className="dashboard-container">
-        <h1>Willkommen im Dashboard</h1>
+        <div className="dashboard-description">
+          <h1>Home Finder Dashboard</h1>
+          <p>
+            Der perfekte Text-Generator! <br />
+            Hier kannst du Texte für Inserate generieren lassen, die mit einer
+            perfekt getunten AI auf Textgenerierung für Wohnungen, Zuhause,
+            Häuser und Apartments trainiert wurden. <br />
+            Zusätzlich bietet die AI wertvolle Tipps und Tools, die dir helfen,
+            dein Traumzuhause zu finden.
+          </p>
+        </div>
         <div className="grid">
           {apps.map((app, index) => (
             <div

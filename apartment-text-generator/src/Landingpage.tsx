@@ -3,7 +3,6 @@ import CtaComponent from "./CtaComponent";
 import EmailSection from "./EmailSection";
 import FeaturesSection from "./FeatureSection";
 import Footer from "./Footer";
-import Header from "./Header";
 import HeroSection from "./HeroSection";
 import HowItWorks from "./HowItWorks";
 import PricingSection from "./PricingSection";
@@ -15,7 +14,6 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="landing-page">
-      <Header />
       {/* Übergabe des setPrompt-Handlers an HeroSection */}
       <HeroSection setPrompt={setPrompt} />
       {/* Übergabe des Prompts an die EmailSection */}

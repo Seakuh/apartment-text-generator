@@ -10,6 +10,11 @@
 
 }
 
+.dashboard-description {
+  padding: 2rem;
+  padding-right: 20px;
+}
+
 .grid {
   display: flex; /* Flexbox statt Grid */
   flex-wrap: wrap; /* Umbrüche bei kleinen Bildschirmen */
