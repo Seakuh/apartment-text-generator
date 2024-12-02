@@ -1,0 +1,97 @@
+import React, { useState } from "react";
+import { useUser } from "../../context/UserProvider";
+import "./GenerateText.css";
+import { processListing } from "./generateTextService";
+
+const GenerateText: React.FC = () => {
+  const { user } = useUser();
+  const [link, setLink] = useState("");
+  const [prompt, setPrompt] = useState("");
+  const [feedback, setFeedback] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<string | null>(null);
+
+  const handleFileDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const items = event.dataTransfer.items;
+    if (items.length > 0 && items[0].kind === "string") {
+      items[0].getAsString((text) => {
+        setLink(text);
+      });
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (!user?.token) {
+      alert("Bitte einloggen, um fortzufahren.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await processListing(
+        {
+          userId: user.email, // Verwende User-E-Mail als ID
+          link,
+          prompt,
+        },
+        user.token // JWT-Token für Authentifizierung
+      );
+      setResult(response);
+    } catch (error) {
+      console.error("Error processing the listing:", error);
+      setResult("Fehler beim Generieren der Nachricht.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="generate-text">
+      <h1>Generiere deine Nachricht</h1>
+
+      <div
+        className="drag-drop-area"
+        onDragOver={(e) => e.preventDefault()}
+        onDrop={handleFileDrop}
+      >
+        {link ? (
+          <p>Link hinzugefügt: {link}</p>
+        ) : (
+          <p>Drag & Drop oder Link eingeben</p>
+        )}
+      </div>
+
+      <input
+        type="text"
+        placeholder="Link einfügen"
+        value={link}
+        onChange={(e) => setLink(e.target.value)}
+      />
+
+      <textarea
+        placeholder="Zusätzliche Informationen eingeben"
+        value={prompt}
+        onChange={(e) => setPrompt(e.target.value)}
+      />
+
+      <button onClick={handleSubmit} disabled={loading}>
+        Nachricht generieren
+      </button>
+
+      {loading && (
+        <div className="loading-animation">✨ Generiere Nachricht...</div>
+      )}
+
+      {result && <div className="result">{result}</div>}
+
+      <textarea
+        placeholder="Verbesserungsvorschläge"
+        value={feedback}
+        onChange={(e) => setFeedback(e.target.value)}
+      />
+    </div>
+  );
+};
+
+export default GenerateText;
