@@ -1,9 +1,6 @@
-body {
+.generate-text {
     font-family: "Poppins", sans-serif;
     background-color: #f9f9f9;
-  }
-  
-  .generate-text {
     display: flex;
     flex-direction: column;
     gap: 1rem;
