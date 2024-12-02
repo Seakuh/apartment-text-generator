@@ -28,8 +28,8 @@ const Dashboard: React.FC = () => {
       label: "Inserat generieren",
       route: "/home-finder/generate-inserat",
     },
-    { emoji: "🏠", label: "Meine Häuser", route: "/home-finder/my-homes" },
-    { emoji: "👤", label: "Profil", route: "/home-finder/profile" },
+    { emoji: "🏠", label: "Meine Cards", route: "/home-finder/my-homes" },
+    { emoji: "👤", label: "Profil", route: "/home-finder/user" },
     { emoji: "💡", label: "Chat Bot", route: "/home-finder/chat" },
   ];
 
