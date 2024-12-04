@@ -1,13 +1,13 @@
-interface ProcessListingParams {
-  link: string;
+interface GenerateInseratParams {
   prompt: string;
+  userId: string;
 }
 
-export const processListing = async (
-  data: ProcessListingParams,
+export const generateInserat = async (
+  data: GenerateInseratParams,
   token: string
 ): Promise<string> => {
-  const url = "http://localhost:3000/home-finder/listings/process";
+  const url = "http://localhost:3000/home-finder/chatbot/generate-inserat";
 
   try {
     const response = await fetch(url, {
@@ -24,9 +24,9 @@ export const processListing = async (
     }
 
     const result = await response.json();
-    return result.listing; // Erwartete Antwort anpassen
+    return result.listing; // Rückgabe des generierten Inserats
   } catch (error) {
-    console.error("Error in processListing:", error);
+    console.error("Error in generateInserat:", error);
     throw error;
   }
 };
