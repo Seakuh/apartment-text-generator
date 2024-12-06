@@ -9,6 +9,7 @@ import { LanguageProvider } from "./LanguageContext";
 import Layout from "./Layout";
 import LoginScreen from "./Login/LoginScreen";
 import User from "./User/User";
+import UserListings from "./UserListings/UserListings";
 
 function App() {
   return (
@@ -30,6 +31,11 @@ function App() {
             <Route
               path="/home-finder/generate-inserat"
               element={<GenerateInserat />}
+            />
+
+            <Route
+              path="/home-finder/listings/:userId"
+              element={<UserListings />}
             />
           </Route>
           <Route path="/home-finder/login" element={<LoginScreen />} />
