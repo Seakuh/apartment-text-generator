@@ -15,7 +15,9 @@ const LoginScreen: React.FC = () => {
     e.preventDefault();
     try {
       const { token } = await loginUser(email, password); // Token vom Service
-      login(email, token); // Token im Context speichern
+      console.log(token.accessToken);
+
+      login(email, token.accessToken); // Token im Context speichern
       navigate("/home-finder/dashboard");
     } catch (err) {
       if (err instanceof Error) {

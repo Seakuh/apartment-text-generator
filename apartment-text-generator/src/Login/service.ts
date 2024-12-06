@@ -2,7 +2,7 @@
 export const loginUser = async (
   email: string,
   password: string
-): Promise<{ token: string }> => {
+): Promise<{ token: { accessToken: string } }> => {
   const response = await fetch(
     "http://localhost:3000/home-finder/users/login",
     {
@@ -16,6 +16,5 @@ export const loginUser = async (
     const errorData = await response.json();
     throw new Error(errorData.message || "Invalid credentials");
   }
-
   return response.json(); // { token: string }
 };

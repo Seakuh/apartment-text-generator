@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { getUserIdFromToken } from "../../context/authService";
 import { useUser } from "../../context/UserProvider";
+import { generateInserat } from "../service";
 import "./GenerateInserat.css";
-import { generateInserat } from "./service";
 
 const GenerateInserat: React.FC = () => {
   const { user } = useUser(); // Benutzerprofil aus dem Context abrufen
