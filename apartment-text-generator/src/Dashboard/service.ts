@@ -3,10 +3,14 @@ interface GenerateInseratParams {
   userId: string;
 }
 
+interface GenerateInseratResponse {
+  response: string;
+}
+
 export const generateInserat = async (
   data: GenerateInseratParams,
   token: string
-): Promise<string> => {
+): Promise<GenerateInseratResponse> => {
   const url = "http://localhost:3000/home-finder/chatbot/generate-inserat";
 
   try {

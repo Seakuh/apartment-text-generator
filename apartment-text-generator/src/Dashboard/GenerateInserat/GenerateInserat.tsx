@@ -36,9 +36,7 @@ const GenerateInserat: React.FC = () => {
         token
       );
 
-      // Debugging-Log, um die tatsächliche Struktur zu überprüfen
-      console.log("API-Antwort:", response);
-      const inserat = response.response; // `response` aus dem JSON extrahieren
+      const inserat = response.response;
       setGeneratedInserat(inserat);
     } catch (error) {
       console.error("Fehler beim Generieren des Inserats:", error);

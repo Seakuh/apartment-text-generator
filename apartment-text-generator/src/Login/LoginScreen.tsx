@@ -50,7 +50,7 @@ const LoginScreen: React.FC = () => {
           required
         />
         {error && <p className="error-message">{error}</p>}
-        <button type="submit" className="login-button">
+        <button type="submit" className="login-button-form">
           Login
         </button>
         <p className="register-link">
