@@ -28,6 +28,7 @@ const UserInfo: React.FC<UserInfoProps> = ({ userData }) => {
   return (
     <div className="user-info-container">
       <h2 className="user-info-title">Deine Präferenzen</h2>
+      <h3>Das weiß der Chatbot über Dich 🤖</h3>
       <div className="user-info-card">
         <p>
           <strong>📍 Standort:</strong> {userData.location || "Nicht angegeben"}
@@ -69,6 +70,7 @@ const UserInfo: React.FC<UserInfoProps> = ({ userData }) => {
       <button className="edit-profile-button" onClick={handleEditProfile}>
         Profil bearbeiten
       </button>
+      <h3>Lass uns Chaten, stelle gerne alle Fragen</h3>
     </div>
   );
 };

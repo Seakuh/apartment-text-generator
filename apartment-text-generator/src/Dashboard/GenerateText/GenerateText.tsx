@@ -53,7 +53,7 @@ const GenerateText: React.FC = () => {
     <div className="generate-text">
       <h1>Generiere deine Nachricht</h1>
       <>
-        <div
+        {/* <div
           className="drag-drop-area"
           onDragOver={(e) => e.preventDefault()}
           onDrop={handleFileDrop}
@@ -63,7 +63,7 @@ const GenerateText: React.FC = () => {
           ) : (
             <p>Drag & Drop oder Link eingeben</p>
           )}
-        </div>
+        </div> */}
 
         <input
           type="text"
