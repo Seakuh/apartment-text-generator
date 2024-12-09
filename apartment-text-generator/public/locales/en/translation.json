@@ -70,5 +70,51 @@
     "myListings": "My Listings",
     "profile": "Profile",
     "chatbot": "Chatbot"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "description": "Choose the plan that suits you best. Whether free or premium – we help you find your dream home.",
+    "startButton": "Start now"
+  },
+  "packages": {
+    "free": {
+      "name": "Free",
+      "price": "Free",
+      "benefits": [
+        "✨ Access to our basic chatbot",
+        "🔍 Limited features",
+        "⏳ Limited to 7 days"
+      ]
+    },
+    "student": {
+      "name": "Students",
+      "price": "9.95 €",
+      "benefits": [
+        "✨ Access to our exclusive chatbot",
+        "📚 Perfect for student housing search",
+        "🔑 Tips and access to student platforms",
+        "📖 Overview of affordable housing options"
+      ]
+    },
+    "basic": {
+      "name": "Basic",
+      "price": "14.95 €",
+      "benefits": [
+        "✨ Access to our exclusive chatbot",
+        "📋 Standard tips for housing search",
+        "🔑 Tips and access to hidden platforms",
+        "🗂 Overview of popular platforms"
+      ]
+    },
+    "business": {
+      "name": "Business",
+      "price": "19.95 €",
+      "benefits": [
+        "✨ Access to our exclusive chatbot",
+        "📈 Expert tips for housing search",
+        "🔑 Tips and access to hidden platforms",
+        "🤝 Personal support for up to 14 days"
+      ]
+    }
   }
 }

@@ -1,42 +1,39 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./PricingSection.css";
+import { packages } from "./ProcessComponent/packages";
 
 const PricingSection: React.FC = () => {
+  const { t } = useTranslation();
+
+  const handleStart = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scrollen zum Anfang der Seite
+  };
+
   return (
     <section className="pricing-section">
-      <h2>Preise</h2>
-      <p className="pricing-description">
-        Wählen Sie den Plan, der zu Ihnen passt. Ob kostenlos oder Premium – wir
-        helfen Ihnen, Ihre Traumwohnung zu finden.
-      </p>
+      <h2>{t("pricing.title")}</h2>
+      <p className="pricing-description">{t("pricing.description")}</p>
       <div className="pricing-table">
-        {/* Lite Card */}
-        <div className="pricing-card">
-          <h3>Lite</h3>
-          <p className="price">Kostenlos</p>
-          <ul className="features">
-            <li>⏱️ Einfache Textgenerierung</li>
-            <li>📋 Standard-Tipps</li>
-            <li>🌍 Unterstützung auf Deutsch und Englisch</li>
-          </ul>
-          <button className="cta-button">Starten</button>
-        </div>
-
-        {/* Premium Card */}
-        <div className="pricing-card premium">
-          <h3>Premium</h3>
-          <p className="price">9,95 €</p>
-          <ul className="features">
-            <li>🤖 Individuelle Texte mit optimiertem Modell</li>
-            <li>📈 Experten-Tipps zur Wohnungssuche</li>
-            <li>🔑 Geheimtipps und Zugang zu versteckten Portalen</li>
-            <li>🤝 Persönliche Unterstützung für bis zu 14 Tage</li>
-            <li>✨ Zugang zu unserem exklusiven Chatbot</li>
-          </ul>
-          <button className="cta-button premiumButton premium-button">
-            Starten
-          </button>
-        </div>
+        {packages.map((pkg) => (
+          <div className="pricing-card" key={pkg.id}>
+            <h3>{t(`packages.${pkg.id}.name`)}</h3>
+            <p className="price">{t(`packages.${pkg.id}.price`)}</p>
+            <ul className="features">
+              {pkg.benefits.map((benefit, index) => (
+                <li key={index}>{t(benefit)}</li>
+              ))}
+            </ul>
+            <button
+              className={`cta-button ${
+                pkg.id === "business" ? "premium-button" : ""
+              }`}
+              onClick={handleStart}
+            >
+              {t("pricing.startButton")}
+            </button>
+          </div>
+        ))}
       </div>
     </section>
   );
