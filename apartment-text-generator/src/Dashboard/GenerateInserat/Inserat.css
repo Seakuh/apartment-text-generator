@@ -3,7 +3,6 @@
     padding: 15px;
     background: #f0f9f8;
     border: 2px solid #3dafac;
-    border-radius: 8px;
     text-align: center;
   }
   
@@ -35,12 +34,15 @@
     border: none;
     padding: 8px 12px;
     font-size: 1rem;
+    border-radius: 0% !important;
+
     cursor: pointer;
     transition: background 0.3s ease;
   }
   
   .copy-button:hover {
     background: #2c8d87;
+    border-radius: 0%;
   }
   
   @keyframes bounce {

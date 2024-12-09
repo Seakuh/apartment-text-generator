@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserProvider";
 import "./GenerateText.css";
 import GenerateTextResult from "./GenerateTextResult";
@@ -7,22 +6,11 @@ import { processListing } from "./generateTextService";
 
 const GenerateText: React.FC = () => {
   const { user } = useUser();
-  const navigate = useNavigate();
   const [link, setLink] = useState("");
   const [prompt, setPrompt] = useState("");
   const [feedback, setFeedback] = useState("");
   const [loading, setLoading] = useState(false);
-  const [resultData, setResultData] = useState<any | null>(null); // Speichert detaillierte Daten
-
-  const handleFileDrop = (event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault();
-    const items = event.dataTransfer.items;
-    if (items.length > 0 && items[0].kind === "string") {
-      items[0].getAsString((text) => {
-        setLink(text);
-      });
-    }
-  };
+  const [resultData, setResultData] = useState<unknown | null>(null); // Speichert detaillierte Daten
 
   const handleSubmit = async () => {
     if (!user?.token) {

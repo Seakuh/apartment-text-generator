@@ -48,13 +48,13 @@ const GenerateInserat: React.FC = () => {
   const handleCopy = () => {
     if (generatedInserat) {
       navigator.clipboard.writeText(generatedInserat);
-      alert("Inserat wurde in die Zwischenablage kopiert! 📋");
+      addToast("Inserat wurde in die Zwischenablage kopiert! 📋", "info");
     }
   };
 
   return (
     <div className="generate-inserat-container">
-      <h1>Inserat Generieren</h1>
+      <h1>Inserat Generieren 📋</h1>
       <textarea
         className="prompt-input"
         placeholder="Geben Sie hier Ihren Prompt ein..."

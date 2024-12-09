@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useUser } from "../context/UserProvider";
+import { useToast } from "../Toast/Toast";
 import "./UserListings.css";
 
 interface Listing {
@@ -17,13 +18,12 @@ const UserListings: React.FC = () => {
   const { user } = useUser();
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const { addToast } = useToast();
 
   useEffect(() => {
     const fetchListings = async () => {
-      console.log(user);
-
       if (!user?.token) {
-        console.error("No token available. User not authenticated.");
+        addToast("No token available. User not authenticated.", "error");
         return;
       }
 
@@ -58,7 +58,7 @@ const UserListings: React.FC = () => {
 
   return (
     <div className="user-listings">
-      <h1 className="neon-title">Deine Listings</h1>
+      <h1 className="neon-title">Meine Listings 🏠</h1>
       {loading ? (
         <p className="loading-text">Lade deine Listings...</p>
       ) : listings.length > 0 ? (

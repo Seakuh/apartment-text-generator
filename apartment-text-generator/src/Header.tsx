@@ -74,7 +74,7 @@ const Header: React.FC = () => {
                   </Link>
                 </li>
                 <li onClick={closeBurgerMenu}>
-                  <Link to={`/home-finder/listings/`}>🏠 Meine Cards</Link>
+                  <Link to={`/home-finder/listings/`}>🏠 Meine Listings</Link>
                 </li>
                 <li onClick={closeBurgerMenu}>
                   <Link to="/home-finder/user">👤 Profil</Link>

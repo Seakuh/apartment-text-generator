@@ -161,7 +161,7 @@
   
   @media (max-width: 768px) {
     .burger-menu {
-      width: 100%; /* Breite für Smartphones */
+      width: 90%; /* Breite für Smartphones */
     }
   
     .burger-menu ul li {
