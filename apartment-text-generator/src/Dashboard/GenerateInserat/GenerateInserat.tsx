@@ -3,11 +3,12 @@ import { getUserIdFromToken } from "../../context/authService";
 import { useUser } from "../../context/UserProvider";
 import { generateInserat } from "../service";
 import "./GenerateInserat.css";
+import Inserat from "./Inserat";
 
 const GenerateInserat: React.FC = () => {
   const { user } = useUser(); // Benutzerprofil aus dem Context abrufen
   const [prompt, setPrompt] = useState<string>("");
-  const [generatedInserat, setGeneratedInserat] = useState<string>("");
+  const [generatedInserat, setGeneratedInserat] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleGenerate = async () => {
@@ -31,11 +32,22 @@ const GenerateInserat: React.FC = () => {
         { prompt: prompt, userId: getUserIdFromToken()! },
         token
       );
-      setGeneratedInserat(response);
+
+      // Debugging-Log, um die tatsächliche Struktur zu überprüfen
+      console.log("API-Antwort:", response);
+      const inserat = response.response; // `response` aus dem JSON extrahieren
+      setGeneratedInserat(inserat);
     } catch (error) {
       console.error("Fehler beim Generieren des Inserats:", error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleCopy = () => {
+    if (generatedInserat) {
+      navigator.clipboard.writeText(generatedInserat);
+      alert("Inserat wurde in die Zwischenablage kopiert! 📋");
     }
   };
 
@@ -51,11 +63,12 @@ const GenerateInserat: React.FC = () => {
       <button onClick={handleGenerate} disabled={loading}>
         {loading ? "Generieren..." : "Inserat Generieren"}
       </button>
-      {generatedInserat && (
-        <div className="generated-inserat-output">
-          <h2>Generiertes Inserat:</h2>
-          <p>{generatedInserat}</p>
-        </div>
+      {(loading || generatedInserat) && (
+        <Inserat
+          content={generatedInserat || ""}
+          onCopy={handleCopy}
+          loading={loading}
+        />
       )}
     </div>
   );

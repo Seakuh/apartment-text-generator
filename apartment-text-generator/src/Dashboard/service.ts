@@ -24,7 +24,7 @@ export const generateInserat = async (
     }
 
     const result = await response.json();
-    return result.listing; // Rückgabe des generierten Inserats
+    return result; // Rückgabe des generierten Inserats
   } catch (error) {
     console.error("Error in generateInserat:", error);
     throw error;

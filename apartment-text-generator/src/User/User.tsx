@@ -21,6 +21,8 @@ const User: React.FC = () => {
 
     const loadContext = async () => {
       try {
+        console.log(userId);
+
         const fetchedContext = await fetchUserContext(userId);
         setContext(fetchedContext);
         setOriginalContext(fetchedContext); // Kopie für Vergleich speichern
