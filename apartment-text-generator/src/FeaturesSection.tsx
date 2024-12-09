@@ -10,7 +10,7 @@ const FeaturesSection: React.FC = () => {
       <h2>{t("features.title")}</h2>
       <p>{t("features.description")}</p>
       <ul>
-        {t("features.items", { returnObjects: true }).map(
+        {(t("features.items", { returnObjects: true }) as string[]).map(
           (item: string, index: number) => (
             <li key={index} style={{ animationDelay: `${index * 0.2}s` }}>
               {item}
