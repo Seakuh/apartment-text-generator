@@ -1,3 +1,5 @@
+import { GenerateTextResultProps } from "./GenerateTextResult";
+
 interface ProcessListingParams {
   link: string;
   prompt: string;
@@ -6,7 +8,7 @@ interface ProcessListingParams {
 export const processListing = async (
   data: ProcessListingParams,
   token: string
-): Promise<string> => {
+): Promise<GenerateTextResultProps> => {
   const url = "http://localhost:3000/home-finder/listings/process";
 
   try {

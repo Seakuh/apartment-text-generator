@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useUser } from "../../context/UserProvider";
 import "./GenerateText.css";
-import GenerateTextResult from "./GenerateTextResult";
+import GenerateTextResult, {
+  GenerateTextResultProps,
+} from "./GenerateTextResult";
 import { processListing } from "./generateTextService";
 
 const GenerateText: React.FC = () => {
@@ -10,7 +12,10 @@ const GenerateText: React.FC = () => {
   const [prompt, setPrompt] = useState("");
   const [feedback, setFeedback] = useState("");
   const [loading, setLoading] = useState(false);
-  const [resultData, setResultData] = useState<unknown | null>(null); // Speichert detaillierte Daten
+
+  const [resultData, setResultData] = useState<GenerateTextResultProps | null>(
+    null
+  ); // Speichert detaillierte Daten
 
   const handleSubmit = async () => {
     if (!user?.token) {
@@ -22,7 +27,6 @@ const GenerateText: React.FC = () => {
     try {
       const response = await processListing(
         {
-          userId: user.email, // Verwende User-E-Mail als ID
           link,
           prompt,
         },

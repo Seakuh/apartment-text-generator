@@ -2,7 +2,7 @@ import React from "react";
 import { useUser } from "../../context/UserProvider";
 import "./GenerateTextResult.css";
 
-interface GenerateTextResultProps {
+export interface GenerateTextResultProps {
   platform: string;
   link: string;
   title: string;

@@ -39,7 +39,7 @@ const User: React.FC = () => {
   }, [user, navigate, addToast]);
 
   const handleFieldChange = (field: string, value: any) => {
-    setContext((prev) => ({ ...prev, [field]: value }));
+    setContext((prev: any) => ({ ...prev, [field]: value }));
   };
 
   const handleUpdate = async () => {
