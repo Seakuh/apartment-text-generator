@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./HeroSection.css";
 
 const images = [
@@ -21,10 +22,11 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ setPrompt }) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const { t } = useTranslation();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPrompt(e.target.value);
-  };
+  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setPrompt(e.target.value);
+  // };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -46,7 +48,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ setPrompt }) => {
       </div>
       <div className="overlay"></div>
       <div className="hero-content">
-        <h1>Wir finden dein Zuhause</h1>
+        <h1>{t("headline")}</h1>
       </div>
     </header>
   );
