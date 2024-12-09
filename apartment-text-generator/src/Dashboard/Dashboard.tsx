@@ -25,13 +25,13 @@ const Dashboard: React.FC = () => {
       label: "Inserat generieren",
       route: "/home-finder/generate-inserat",
     },
+    { emoji: "🤖", label: "Chat Bot", route: "/home-finder/chat-bot" },
     {
       emoji: "🏠",
       label: "Meine Cards",
       route: `/home-finder/listings/`, // Dynamische Route mit userId
     },
     { emoji: "👤", label: "Profil", route: "/home-finder/user" },
-    { emoji: "💡", label: "Chat Bot", route: "/home-finder/chat-bot" },
   ];
 
   return (
