@@ -12,7 +12,7 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogoClick = () => {
-    navigate(user ? "/home-finder/home" : "/home-finder");
+    navigate(user ? "/home-finder/home" : "/home-finder/");
   };
   const toggleBurgerMenu = () => {
     setIsBurgerOpen(!isBurgerOpen);
