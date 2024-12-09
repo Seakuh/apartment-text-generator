@@ -1,46 +1,39 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./HowItWorks.css";
 
 const HowItWorks: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="how-it-works">
-      <h2>So funktioniert's 🚀</h2>
-      <p>
-        In nur drei Schritten zu Ihrer Traumwohnung - maßgeschneidert und
-        effizient!
-      </p>
+      <h2>{t("howItWorks.title")}</h2>
+      <p>{t("howItWorks.description")}</p>
       <div className="steps">
         <div className="step">
           <span className="step-number">1️⃣</span>
-          <h3>Email angeben</h3>
-          <p>
-            Geben Sie Ihre Email-Adresse ein, um direkt loszulegen. Wir
-            kontaktieren Sie mit einem auf Sie zugeschnittenen Plan.
-          </p>
+          <h3>{t("step1.title")}</h3>
+          <p>{t("step1.description")}</p>
         </div>
         <div className="step">
           <span className="step-number">2️⃣</span>
-          <h3>Prompt schreiben</h3>
-          <p>
-            Beschreiben Sie Ihre Wohnungswünsche – Lage, Größe, Budget oder
-            besondere Anforderungen. Wir erledigen den Rest!
-          </p>
+          <h3>{t("step2.title")}</h3>
+          <p>{t("step2.description")}</p>
         </div>
         <div className="step">
           <span className="step-number">3️⃣</span>
-          <h3>Email erhalten</h3>
-          <p>
-            Erhalten Sie maßgeschneiderte Vorschläge, hilfreiche Tipps von
-            Experten und Zugang zu exklusiven Tools wie unserem Chatbot.
-          </p>
+          <h3>{t("step3.title")}</h3>
+          <p>{t("step3.description")}</p>
         </div>
       </div>
       <div className="extra-info">
-        <h3>Was Sie erwartet 🏠</h3>
+        <h3>{t("extraInfo.title")}</h3>
         <ul>
-          <li>✨ Personalisierte Portale für Ihre Suche</li>
-          <li>📋 Experten-Tipps, um Ihre Chancen zu maximieren</li>
-          <li>🤖 Premium-Beratung und Chatbot-Zugang</li>
+          <li>{t("extraInfo.features.1")}</li>
+          <li>{t("extraInfo.features.2")}</li>
+          <li>{t("extraInfo.features.3")}</li>
+          <li>{t("extraInfo.features.4")}</li>
+          <li>{t("extraInfo.features.5")}</li>
         </ul>
       </div>
     </section>
