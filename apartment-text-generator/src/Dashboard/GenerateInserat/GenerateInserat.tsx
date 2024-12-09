@@ -1,24 +1,27 @@
 import React, { useState } from "react";
 import { getUserIdFromToken } from "../../context/authService";
 import { useUser } from "../../context/UserProvider";
+import { useToast } from "../../Toast/Toast";
 import { generateInserat } from "../service";
 import "./GenerateInserat.css";
 import Inserat from "./Inserat";
 
 const GenerateInserat: React.FC = () => {
   const { user } = useUser(); // Benutzerprofil aus dem Context abrufen
+  const { addToast } = useToast();
+
   const [prompt, setPrompt] = useState<string>("");
   const [generatedInserat, setGeneratedInserat] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleGenerate = async () => {
     if (!prompt) {
-      alert("Bitte geben Sie einen Prompt ein!");
+      addToast("Bitte geben Sie einen Prompt ein!", "warning");
       return;
     }
 
     if (!user) {
-      alert("Benutzer nicht authentifiziert!");
+      addToast("Benutzer nicht authentifiziert!", "error");
       return;
     }
 
