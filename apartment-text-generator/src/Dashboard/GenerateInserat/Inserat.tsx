@@ -20,7 +20,10 @@ const Inserat: React.FC<InseratProps> = ({ content, onCopy, loading }) => {
       ) : (
         <>
           <h2>Generiertes Inserat:</h2>
-          <p className="inserat-content">{content}</p>
+          <div
+            className="inserat-content"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
           <button className="copy-button" onClick={onCopy}>
             📋 Kopieren
           </button>
