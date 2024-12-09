@@ -108,7 +108,6 @@ const Header: React.FC = () => {
                 <li onClick={closeBurgerMenu}>
                   <Link to="/home-finder/user">👤 {t("header.profile")}</Link>
                 </li>
-                s
                 <li className="language-button-container">
                   <button
                     className="language-button"

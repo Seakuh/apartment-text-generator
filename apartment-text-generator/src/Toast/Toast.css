@@ -1,57 +1,72 @@
 .toast-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Mehr Abstand zwischen Toasts */
+}
+
+.toast {
+  padding: 15px 25px; /* Mehr Padding für besseren Textabstand */
+  border-radius: 8px; /* Runde Ecken für ein modernes Design */
+  font-size: 1rem;
+  line-height: 1.4;
+  width: 300px; /* Maximale Breite für bessere Lesbarkeit */
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Weicherer Schatten für Modernität */
+  animation: fadeIn 0.3s ease, fadeOut 0.5s ease 4.5s forwards;
+  overflow: hidden; /* Inhalte, die über den Toast hinausgehen, ausblenden */
+}
+
+.toast-success {
+  background: linear-gradient(135deg, #4caf50, #81c784); /* Farbverlauf für Erfolg */
+}
+
+.toast-error {
+  background: linear-gradient(135deg, #f44336, #ef9a9a); /* Farbverlauf für Fehler */
+}
+
+.toast-info {
+  background: linear-gradient(135deg, #2196f3, #64b5f6); /* Farbverlauf für Info */
+}
+
+.toast-warning {
+  background: linear-gradient(135deg, #ff9800, #ffb74d); /* Farbverlauf für Warnung */
+}
+
+.toast-title {
+  font-weight: bold;
+  font-size: 1.1rem; /* Größere Schrift für Titel */
+  margin-bottom: 5px;
+}
+
+.toast-message {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Einblendeanimation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
   }
-  
-  .toast {
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1rem;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.3s ease, fadeOut 0.5s ease 4.5s forwards;
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
-  
-  .toast-success {
-    background-color: #4caf50;
+}
+
+/* Ausblendeanimation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
-  
-  .toast-error {
-    background-color: #f44336;
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
   }
-  
-  .toast-info {
-    background-color: #2196f3;
-  }
-  
-  .toast-warning {
-    background-color: #ff9800;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-  }
-  
+}
