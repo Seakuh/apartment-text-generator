@@ -224,3 +224,9 @@
     transform: scale(1); /* Kein Bounce-Effekt */
   }
   
+
+  .login-language-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }

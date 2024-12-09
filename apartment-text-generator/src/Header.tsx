@@ -50,12 +50,30 @@ const Header: React.FC = () => {
             </button>
           </>
         ) : (
-          <button
-            className="login-button"
-            onClick={() => navigate("/home-finder/login")}
-          >
-            Login
-          </button>
+          <div className="login-language-container">
+            <button
+              className="login-button"
+              onClick={() => navigate("/home-finder/login")}
+            >
+              Login
+            </button>
+            <>
+              <li className="language-button-container">
+                <button
+                  className="language-button"
+                  onClick={() => changeLanguage("de")}
+                >
+                  🇩🇪
+                </button>
+                <button
+                  className="language-button"
+                  onClick={() => changeLanguage("en")}
+                >
+                  🇬🇧
+                </button>
+              </li>
+            </>
+          </div>
         )}
       </div>
       {isBurgerOpen && (
@@ -112,14 +130,10 @@ const Header: React.FC = () => {
             ) : (
               <>
                 <li>
-                  <button onClick={() => changeLanguage("de")}>
-                    🇩🇪 Deutsch
-                  </button>
+                  <button onClick={() => changeLanguage("de")}>🇩🇪</button>
                 </li>
                 <li>
-                  <button onClick={() => changeLanguage("en")}>
-                    🇬🇧 English
-                  </button>
+                  <button onClick={() => changeLanguage("en")}>🇬🇧</button>
                 </li>
               </>
             )}
