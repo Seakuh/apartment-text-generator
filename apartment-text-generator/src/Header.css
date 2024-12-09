@@ -74,3 +74,153 @@
 
   }
   
+
+  .burger-menu {
+    margin-right: 2rem;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 10px 0;
+    z-index: 1001;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .language-button-container {
+    display: flex; /* Buttons nebeneinander */
+    background: none !important; /* Keine Hintergrundfarbe */
+  }
+  
+  .language-button {
+    border: none; /* Kein Rahmen */
+    font-size: 1.5rem; /* Größere Schrift für bessere Sichtbarkeit */
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  
+  .language-button:hover {
+    background: none !important; /* Keine Hintergrundfarbe */
+    transform: scale(1.2); /* Leichte Vergrößerung beim Hover */
+    filter: brightness(1.2); /* Heller Effekt beim Hover */
+  }
+  
+  .language-button:active {
+    transform: scale(1); /* Kein Bounce-Effekt bei Klick */
+  }
+  
+  .burger-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .burger-menu ul li {
+    margin: 0;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .burger-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    width: 100%;
+  }
+  
+  .burger-menu ul li:hover {
+    background-color: #a787e6; /* Helle Akzentfarbe */
+    color: white;
+    transform: scale(1.05); /* Vergrößerung bei Hover */
+  }
+  
+  .burger-menu ul li:active {
+    transform: scale(1); /* Kein Bounce-Effekt bei Klick */
+  }
+  
+  .burger-menu ul li a:hover {
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .burger-menu {
+      width: 100%; /* Breite für Smartphones */
+    }
+  
+    .burger-menu ul li {
+      font-size: 1.5rem; /* Größere Schrift für Smartphones */
+      padding: 20px; /* Mehr Platz */
+    }
+  }
+
+  .login-button {
+    color: #fff;
+    background: linear-gradient(135deg, #0400ff, #00ffff, #ff6600);
+    margin-right: .5rem;
+    background-size: 200% 200%;
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-position 0.3s ease, transform 0.2s ease;
+  }
+  
+  .loginButton:hover {
+    background-position: right center; /* Animation beim Hover */
+    transform: scale(1.05); /* Leichte Vergrößerung */
+  }
+  
+  .loginButton:active {
+    transform: scale(0.98); /* Leichtes Zurückspringen beim Klick */
+  }
+  
+  
+  .logout-button-container {
+    background: none !important; /* Keine Hintergrundfarbe */
+
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .logout-button {
+    background-color: #ff6b6b; /* Auffälliges Rot */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+  }
+  
+  .logout-button:hover {
+    background-color: #ff4c4c; /* Dunkleres Rot bei Hover */
+    transform: scale(1.05); /* Leichte Vergrößerung */
+  }
+  
+  .logout-button:active {
+    background-color: #ff3232; /* Noch dunkleres Rot bei Klick */
+    transform: scale(1); /* Kein Bounce-Effekt */
+  }
+  
