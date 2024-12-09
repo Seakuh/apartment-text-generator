@@ -1,11 +1,16 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserProvider";
+import { useToast } from "../Toast/Toast";
 import "./LoginScreen.css";
 import { loginUser } from "./service";
 
 const LoginScreen: React.FC = () => {
   const { login } = useUser();
+  const { addToast } = useToast();
+  const { t } = useTranslation(); // Translation-Hook
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,21 +26,27 @@ const LoginScreen: React.FC = () => {
       navigate("/home-finder/dashboard");
     } catch (err) {
       if (err instanceof Error) {
-        setError(err.message || "Login failed");
+        setError(err.message || t("login.error.default"));
+        addToast(err.message || t("login.error.default"), "error");
       } else {
-        setError("Login failed");
+        setError(t("login.error.default"));
+        addToast(t("login.error.default"), "error");
       }
     }
   };
 
   return (
     <div className="login-container">
-      <img src="home_ginue_logo.png" alt="Logo" className="logo" />
-      <h2 className="welcome-text">Willkommen zurück! Bitte logge dich ein.</h2>
+      <img
+        src="home_ginue_logo.png"
+        alt={t("login.logoAlt")}
+        className="logo"
+      />
+      <h2 className="welcome-text">{t("login.welcomeText")}</h2>
       <form className="login-form" onSubmit={handleLogin}>
         <input
           type="email"
-          placeholder="Email"
+          placeholder={t("login.emailPlaceholder")}
           className="login-input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -43,7 +54,7 @@ const LoginScreen: React.FC = () => {
         />
         <input
           type="password"
-          placeholder="Passwort"
+          placeholder={t("login.passwordPlaceholder")}
           className="login-input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -51,10 +62,10 @@ const LoginScreen: React.FC = () => {
         />
         {error && <p className="error-message">{error}</p>}
         <button type="submit" className="login-button-form">
-          Login
+          {t("login.button")}
         </button>
         <p className="register-link">
-          Noch kein Account? <a href="/">Registrieren</a>
+          {t("login.noAccount")} <a href="/">{t("login.registerLink")}</a>
         </p>
       </form>
     </div>

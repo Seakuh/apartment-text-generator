@@ -32,5 +32,36 @@
     "satisfiedUsers": "Satisfied Users",
     "generatedTexts": "Texts Generated",
     "averageRating": "Average Rating"
+  },
+  "footer": {
+    "title": "Apartment Text Generator. All rights reserved.",
+    "impressum": "Imprint",
+    "privacy": "Privacy Policy",
+    "contact": "Contact"
+  },
+  "features": {
+    "title": "Why choose our service? 🏠",
+    "description": "We are here to help you find your dream home – with personal support and intelligent tools.",
+    "items": [
+      "⏱️ <strong>Save time:</strong> Tailored texts in seconds.",
+      "📈 <strong>Higher success rate:</strong> Impress landlords with perfectly crafted applications.",
+      "🌍 <strong>Internationally suitable:</strong> Available in German and English.",
+      "🏢 <strong>Institutional help:</strong> Support for short- and long-term tenants through relevant institutions.",
+      "🔑 <strong>Best platforms & tips:</strong> Access to top platforms and hidden housing offers.",
+      "🤖 <strong>Chatbot access:</strong> Your digital assistant, available 24/7 for your housing search.",
+      "🤝 <strong>Personal support:</strong> Up to 14 days of intensive assistance to make your search successful."
+    ]
+  },
+  "login": {
+    "logoAlt": "Home Ginue Logo",
+    "welcomeText": "Welcome back! Please log in.",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "button": "Login",
+    "noAccount": "No account yet?",
+    "registerLink": "Register here",
+    "error": {
+      "default": "Login failed. Please check your credentials."
+    }
   }
 }

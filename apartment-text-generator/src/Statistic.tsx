@@ -49,7 +49,7 @@ const Statistics: React.FC = () => {
         <p className="stat-emoji">⭐</p>
         {startCount && (
           <CountUp
-            end={5.0}
+            end={4.8}
             duration={2.5}
             decimals={1}
             className="stat-number"

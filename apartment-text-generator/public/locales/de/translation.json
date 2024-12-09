@@ -31,6 +31,37 @@
   "statistics": {
     "satisfiedUsers": "Zufriedene Nutzer",
     "generatedTexts": "Generierte Texte",
-    "averageRating": "Durchschnittliche Bewertung"
+    "averageRating": "⌀ Bewertungen"
+  },
+  "footer": {
+    "title": "Apartment Text Generator. Alle Rechte vorbehalten.",
+    "impressum": "Impressum",
+    "privacy": "Datenschutz",
+    "contact": "Kontakt"
+  },
+  "features": {
+    "title": "Warum unser Service? 🏠",
+    "description": "Wir sind hier, um Ihnen zu helfen, Ihre Traumwohnung zu finden – mit persönlicher Unterstützung und intelligenten Tools.",
+    "items": [
+      "⏱️ <strong>Zeitersparnis:</strong> Passende Texte in wenigen Sekunden.",
+      "📈 <strong>Höhere Erfolgschancen:</strong> Überzeugen Sie Vermieter mit perfekt formulierten Bewerbungen.",
+      "🌍 <strong>International geeignet:</strong> Deutsch und Englisch verfügbar.",
+      "🏢 <strong>Institutionelle Hilfe:</strong> Unterstützung für Kurz- und Langzeitmieter durch relevante Institutionen.",
+      "🔑 <strong>Passende Portale & Geheimtipps:</strong> Zugang zu den besten Plattformen und versteckten Wohnungsangeboten.",
+      "🤖 <strong>Zugang zum Chatbot:</strong> Ihr digitaler Assistent, der Ihnen rund um die Uhr bei der Wohnungssuche hilft.",
+      "🤝 <strong>Persönliche Unterstützung:</strong> Bis zu 14 Tage intensive Betreuung, um Ihre Suche erfolgreich zu machen."
+    ]
+  },
+  "login": {
+    "logoAlt": "Home Ginue Logo",
+    "welcomeText": "Willkommen zurück! Bitte logge dich ein.",
+    "emailPlaceholder": "E-Mail-Adresse",
+    "passwordPlaceholder": "Passwort",
+    "button": "Anmelden",
+    "noAccount": "Noch kein Account?",
+    "registerLink": "Hier registrieren",
+    "error": {
+      "default": "Login fehlgeschlagen. Bitte überprüfe deine Zugangsdaten."
+    }
   }
 }

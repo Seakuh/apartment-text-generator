@@ -1,100 +1,168 @@
+/* Container */
 .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 400px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
+}
+
+/* Logo */
+.logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease;
+}
+
+/* Welcome Text */
+.welcome-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #555;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Login Form */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input Fields */
+.login-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.login-input:focus {
+  border-color: #3da1ef;
+  box-shadow: 0 0 5px rgba(61, 161, 239, 0.5);
+}
+
+/* Login Button */
+.login-button-form {
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #3da1ef;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button-form:hover {
+  background-color: #2a91d7;
+}
+
+/* Register Link */
+.register-link {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+.register-link a {
+  color: #3da1ef;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
-  .logo {
-    width: 80px;
-    height: auto;
-    margin-bottom: 1rem;
-    animation: fadeIn 1s ease;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    width: 80%; /* Fast volle Breite */
+    padding: 1.5rem;
+  }
+
   .welcome-text {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #555;
-    text-align: center;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
   }
-  
-  .login-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
+
   .login-input {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    padding: 0.7rem;
   }
-  
-  .login-input:focus {
-    border-color: #3da1ef;
-    box-shadow: 0 0 5px rgba(61, 161, 239, 0.5);
-  }
-  
+
   .login-button-form {
-    padding: 1rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #3da1ef;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 0.95rem;
+    padding: 0.9rem;
   }
-  
-  .login-button-form:hover {
-    background-color: #2a91d7;
-  }
-  
+
   .register-link {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #666;
-    text-align: center;
+    font-size: 0.85rem;
   }
-  
-  .register-link a {
-    color: #3da1ef;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .register-link a:hover {
-    text-decoration: underline;
-  }
-  
+
   .error-message {
-    color: red;
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 60px; /* Verkleinertes Logo */
+  }
+
+  .welcome-text {
+    font-size: 1rem;
+  }
+
+  .login-input {
     font-size: 0.9rem;
+    padding: 0.6rem;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
+
+  .login-button-form {
+    font-size: 0.9rem;
+    padding: 0.8rem;
   }
-  
+
+  .register-link {
+    font-size: 0.8rem;
+  }
+
+  .error-message {
+    font-size: 0.8rem;
+  }
+}
