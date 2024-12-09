@@ -12,5 +12,20 @@
   "extraInfo.features.2": "📋 Erstellung professioneller Inserate",
   "extraInfo.features.3": "📊 Verlauf und Historie der generierten Texte",
   "extraInfo.features.4": "🤖 Persönlicher Chatbot für individuelle Beratung",
-  "extraInfo.features.5": "🛠️ Anpassbares Profil für optimierte Generierungen"
+  "extraInfo.features.5": "🛠️ Anpassbares Profil für optimierte Generierungen",
+  "emailSection": {
+    "placeholder": "Ihre E-Mail-Adresse",
+    "startButton": "Jetzt starten",
+    "description": "📧 Geben Sie hier Ihre E-Mail-Adresse ein, um ein Paket auszuwählen. Wir erstellen mit der Eingabe einen Acction für unsere Plattform"
+  },
+  "cta": {
+    "title": "Finde dein neues Zuhause 🏠✨",
+    "descriptionHighlight": "Schnell, unkompliziert und zielgerichtet! 🚀",
+    "description": "Wir verstehen, wie herausfordernd die Wohnungssuche sein kann. Unsere Plattform unterstützt dich dabei, gezielt nach passenden Angeboten zu suchen und direkte Verbindungen zu Vermietern herzustellen. 🤝",
+    "startNow": "Starte jetzt! 💡",
+    "benefit1": "Einfach anmelden und direkt loslegen",
+    "benefit2": "Wähle das passende Paket für dich aus 🎁",
+    "benefit3": "Unterstützung bei jedem Schritt deiner Suche 👣",
+    "benefit4": "🤖 Exklusiv: Unsere intelligenten KI-Chatbots mit Context-Verständnis helfen dir dabei, perfekte Nachrichten an Vermieter zu schreiben und professionelle Inserate zu erstellen. 📝✨"
+  }
 }

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./EmailSection.css";
 import ProcessComponent from "./ProcessComponent/ProcessComponent";
 
 const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
+  const { t } = useTranslation(); // useTranslation-Hook für Übersetzungen
   const [email, setEmail] = useState("");
   const [processComponent, showProcessComponent] = useState(false);
 
@@ -27,19 +29,18 @@ const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
         <form onSubmit={handleSubmit} className="email-form">
           <input
             type="email"
-            placeholder="Ihre E-Mail-Adresse"
+            placeholder={t("emailSection.placeholder")} // Übersetzter Placeholder
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="email-input"
             required
           />
           <button type="submit" className="submitButton">
-            Jetzt starten
+            {t("emailSection.startButton")}
           </button>
         </form>
-        <p>
-          📧 Schreib Uns hier deine Email - Wir entwickeln ein passendes Packet
-          für dich
+        <p className="email-section-description">
+          {t("emailSection.description")}
         </p>
       </div>
       {processComponent && (

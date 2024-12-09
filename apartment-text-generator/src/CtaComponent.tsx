@@ -1,24 +1,26 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./CtaComponent.css";
 
 const CtaComponent: React.FC = () => {
+  const { t } = useTranslation(); // Hook für Übersetzungen
+
   return (
     <div className="cta-container">
-      <h2>Finden Dein neues Zuhause 🏠</h2>
+      <h2>{t("cta.title")}</h2>
       <p className="cta-description">
-        <strong>schnell und unkompliziert</strong>
+        <strong>{t("cta.descriptionHighlight")}</strong>
         <br />
         <br />
-        Wir verstehen, wie schwer es aktuell ist, eine Wohnung zu finden. Unsere
-        Plattform hilft Ihnen dabei, gezielt nach passenden Angeboten zu suchen
-        und direkte Verbindungen zu Vermietern herzustellen.
+        {t("cta.description")}
       </p>
       <div className="extra-info">
-        <h3>Starte jetzt</h3>
+        <h3>{t("cta.startNow")}</h3>
         <ul>
-          <li>Einfach anmelden und direkt loslegen</li>
-          <li>Mit dem passenden Packet für Dich</li>
-          <li>Unterstützung bei jedem Schritt</li>
+          <li>{t("cta.benefit1")}</li>
+          <li>{t("cta.benefit2")}</li>
+          <li>{t("cta.benefit3")}</li>
+          <li>{t("cta.benefit4")}</li>
         </ul>
       </div>
     </div>

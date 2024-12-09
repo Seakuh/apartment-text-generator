@@ -12,5 +12,20 @@
   "extraInfo.features.2": "📋 Create professional listings",
   "extraInfo.features.3": "📊 Track history of generated texts",
   "extraInfo.features.4": "🤖 Personal chatbot for tailored advice",
-  "extraInfo.features.5": "🛠️ Adjustable profile for optimized generations"
+  "extraInfo.features.5": "🛠️ Adjustable profile for optimized generations",
+  "emailSection": {
+    "placeholder": "Your email address",
+    "startButton": "Start now",
+    "description": "📧 Enter your email here to choose a tailored package for you. Additionally, a password will be generated so you can log in to the platform."
+  },
+  "cta": {
+    "title": "Find your new home 🏠✨",
+    "descriptionHighlight": "Quick, easy, and efficient! 🚀",
+    "description": "We understand how challenging it can be to find a home. Our platform helps you find tailored offers and create direct connections with landlords. 🤝",
+    "startNow": "Get started now! 💡",
+    "benefit1": "Simply sign up and get started right away",
+    "benefit2": "Choose the perfect package for you 🎁",
+    "benefit3": "Support at every step of your search 👣",
+    "benefit4": "🤖 Exclusive: Our smart AI chatbots with context understanding help you craft perfect messages for landlords and create professional listings. 📝✨"
+  }
 }

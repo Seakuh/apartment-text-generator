@@ -8,10 +8,13 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: "de", // Fallback-Sprache
-    debug: true,
+    fallbackLng: "en", // Fallback-Sprache
+    debug: true, // Debugging aktivieren
     backend: {
-      loadPath: "/locales/{{lng}}/translation.json", // JSON-Dateipfad
+      loadPath: "public/locales/{{lng}}/translation.json", // Pfad zu den Übersetzungen
+    },
+    interpolation: {
+      escapeValue: false, // Nicht nötig für React
     },
   });
 
