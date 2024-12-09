@@ -71,12 +71,12 @@
     "profile": "Profil",
     "chatbot": "Chatbot"
   },
-
   "pricing": {
     "title": "Preise",
     "description": "Wählen Sie den Plan, der zu Ihnen passt. Ob kostenlos oder Premium – wir helfen Ihnen, Ihre Traumwohnung zu finden.",
     "startButton": "Jetzt starten"
   },
+
   "packages": {
     "free": {
       "name": "Kostenlos",

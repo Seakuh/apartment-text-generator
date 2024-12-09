@@ -76,44 +76,45 @@
     "description": "Choose the plan that suits you best. Whether free or premium – we help you find your dream home.",
     "startButton": "Start now"
   },
+
   "packages": {
     "free": {
-      "name": "Free",
-      "price": "Free",
+      "name": "Kostenlos",
+      "price": "Kostenlos",
       "benefits": [
-        "✨ Access to our basic chatbot",
-        "🔍 Limited features",
-        "⏳ Limited to 7 days"
+        "✨ Zugang zu unserem basic Chatbot",
+        "🔍 Begrenzte Funktionen",
+        "⏳ Zeitlich begrenzt auf 7 Tage"
       ]
     },
     "student": {
-      "name": "Students",
-      "price": "9.95 €",
+      "name": "Studenten",
+      "price": "9,95 €",
       "benefits": [
-        "✨ Access to our exclusive chatbot",
-        "📚 Perfect for student housing search",
-        "🔑 Tips and access to student platforms",
-        "📖 Overview of affordable housing options"
+        "✨ Zugang zu unserem exklusiven Chatbot",
+        "📚 Perfekt für die Wohnungssuche von Studenten",
+        "🔑 Geheimtipps und Zugang zu Studenten Portalen",
+        "📖 Übersicht über günstige Wohnoptionen"
       ]
     },
     "basic": {
       "name": "Basic",
-      "price": "14.95 €",
+      "price": "14,95 €",
       "benefits": [
-        "✨ Access to our exclusive chatbot",
-        "📋 Standard tips for housing search",
-        "🔑 Tips and access to hidden platforms",
-        "🗂 Overview of popular platforms"
+        "✨ Zugang zu unserem exklusiven Chatbot",
+        "📋 Standard-Tipps zur Wohnungssuche",
+        "🔑 Geheimtipps und Zugang zu versteckten Portalen",
+        "🗂 Übersicht von beliebten Portalen"
       ]
     },
     "business": {
       "name": "Business",
-      "price": "19.95 €",
+      "price": "19,95 €",
       "benefits": [
-        "✨ Access to our exclusive chatbot",
-        "📈 Expert tips for housing search",
-        "🔑 Tips and access to hidden platforms",
-        "🤝 Personal support for up to 14 days"
+        "✨ Zugang zu unserem exklusiven Chatbot",
+        "📈 Experten-Tipps zur Wohnungssuche",
+        "🔑 Geheimtipps und Zugang zu versteckten Portalen",
+        "🤝 Persönliche Unterstützung für bis zu 14 Tage"
       ]
     }
   }

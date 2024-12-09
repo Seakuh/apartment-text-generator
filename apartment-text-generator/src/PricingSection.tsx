@@ -1,10 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import "./PricingSection.css";
-import { packages } from "./ProcessComponent/packages";
+import { useTranslatedPackages } from "./ProcessComponent/packages";
 
 const PricingSection: React.FC = () => {
   const { t } = useTranslation();
+  const packages = useTranslatedPackages();
 
   const handleStart = () => {
     window.scrollTo({ top: 0, behavior: "smooth" }); // Scrollen zum Anfang der Seite
@@ -17,11 +18,11 @@ const PricingSection: React.FC = () => {
       <div className="pricing-table">
         {packages.map((pkg) => (
           <div className="pricing-card" key={pkg.id}>
-            <h3>{t(`packages.${pkg.id}.name`)}</h3>
-            <p className="price">{t(`packages.${pkg.id}.price`)}</p>
+            <h3>{pkg.name}</h3>
+            <p className="price">{pkg.price}</p>
             <ul className="features">
               {pkg.benefits.map((benefit, index) => (
-                <li key={index}>{t(benefit)}</li>
+                <li key={index}>{benefit}</li>
               ))}
             </ul>
             <button

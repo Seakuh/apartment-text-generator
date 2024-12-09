@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { packages } from "./packages";
 import "./PackageSelection.css";
+import { useTranslatedPackages } from "./packages";
 
 const PackageSelection: React.FC<{
   onPackageSelect: (packageId: string) => void;
@@ -16,7 +16,7 @@ const PackageSelection: React.FC<{
     <div className="package-container">
       <h2 className="package-title">Wählen Sie Ihr Paket</h2>
       <div className="package-grid">
-        {packages.map((pkg) => (
+        {useTranslatedPackages().map((pkg) => (
           <div
             key={pkg.id}
             className={`package-card ${pkg.id} ${

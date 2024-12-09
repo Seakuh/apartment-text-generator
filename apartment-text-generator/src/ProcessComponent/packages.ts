@@ -1,45 +1,40 @@
-export const packages = [
-  {
-    id: "free",
-    name: "Free",
-    price: "Kostenlos",
-    benefits: [
-      "✨ Zugang zu unserem basic Chatbot",
-      "🔍 Begrenzte Funktionen",
-      "⏳ Zeitlich begrenzt auf 7 Tage",
-    ],
-  },
-  {
-    id: "student",
-    name: "Studenten",
-    price: "9,95 €",
-    benefits: [
-      "✨ Zugang zu unserem exklusiven Chatbot",
-      "📚 Perfekt für die Wohnungssuche von Studenten",
-      "🔑 Geheimtipps und Zugang zu Studenten Portalen",
-      "📖 Übersicht über günstige Wohnoptionen",
-    ],
-  },
-  {
-    id: "basic",
-    name: "Basic",
-    price: "14,95 €",
-    benefits: [
-      "✨ Zugang zu unserem exklusiven Chatbot",
-      "📋 Standard-Tipps zur Wohnungssuche",
-      "🔑 Geheimtipps und Zugang zu versteckten Portalen",
-      "🗂 Übersicht von beliebten Portalen",
-    ],
-  },
-  {
-    id: "business",
-    name: "Business",
-    price: "19,95 €",
-    benefits: [
-      "✨ Zugang zu unserem exklusiven Chatbot",
-      "📈 Experten-Tipps zur Wohnungssuche",
-      "🔑 Geheimtipps und Zugang zu versteckten Portalen",
-      "🤝 Persönliche Unterstützung für bis zu 14 Tage",
-    ],
-  },
-];
+import { useTranslation } from "react-i18next";
+
+export const useTranslatedPackages = () => {
+  const { t } = useTranslation();
+
+  return [
+    {
+      id: "free",
+      name: t("packages.free.name"),
+      price: t("packages.free.price"),
+      benefits: t("packages.free.benefits", {
+        returnObjects: true,
+      }) as string[],
+    },
+    {
+      id: "student",
+      name: t("packages.student.name"),
+      price: t("packages.student.price"),
+      benefits: t("packages.student.benefits", {
+        returnObjects: true,
+      }) as string[],
+    },
+    {
+      id: "basic",
+      name: t("packages.basic.name"),
+      price: t("packages.basic.price"),
+      benefits: t("packages.basic.benefits", {
+        returnObjects: true,
+      }) as string[],
+    },
+    {
+      id: "business",
+      name: t("packages.business.name"),
+      price: t("packages.business.price"),
+      benefits: t("packages.business.benefits", {
+        returnObjects: true,
+      }) as string[],
+    },
+  ];
+};
