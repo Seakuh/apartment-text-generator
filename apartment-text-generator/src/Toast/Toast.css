@@ -14,6 +14,7 @@
   font-size: 1rem;
   line-height: 1.4;
   width: 300px; /* Maximale Breite für bessere Lesbarkeit */
+  height: 2rem;
   color: white;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Weicherer Schatten für Modernität */
   animation: fadeIn 0.3s ease, fadeOut 0.5s ease 4.5s forwards;
