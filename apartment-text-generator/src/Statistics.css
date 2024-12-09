@@ -1,50 +1,68 @@
 .statistics {
+  position: relative; /* Für das Overlay */
   display: flex;
-  justify-content: space-around; /* Gleichmäßige Verteilung der Elemente */
-  align-items: center; /* Zentrierung der Inhalte */
-  flex-wrap: wrap; /* Für Smartphones: Elemente umbrechen */
-  gap: 20px; /* Abstand zwischen den Elementen */
-  width: 90%;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%; /* Volle Breite */
   padding: 40px 20px;
-  background-color: var(--primary-white);
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
+  overflow: hidden; /* Überflüssiges Hintergrundbild ausblenden */
+}
+
+.statistics::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/home_picture_apartment_calm_stil.webp") no-repeat center;
+  background-size: cover; /* Hintergrundbild vollständig abdecken */
+  filter: blur(10px); /* Nur das Hintergrundbild wird geblurrt */
+  z-index: 1; /* Hinter dem Inhalt */
 }
 
 .stat-item {
+  position: relative; /* Inhalt bleibt über dem Hintergrund */
   text-align: center;
-  flex: 1 1 150px; /* Elemente passen sich dynamisch an */
-  max-width: 200px; /* Begrenzte Breite für größere Bildschirme */
+  flex: 1 1 150px;
+  max-width: 200px;
+  z-index: 2; /* Über dem geblurrten Hintergrund */
 }
 
 .stat-number {
-  font-size: 2.5rem; /* Größere Zahlen für mehr Impact */
+  font-size: 2.5rem;
   font-weight: bold;
-  color: var(--primary-black); /* Schwarz für besseren Kontrast */
+  color: var(--primary-black);
   margin-bottom: 10px;
   font-family: 'Arial', sans-serif;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtiler Schatten für Zahlen */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .stat-item p {
-  font-size: 1rem;
-  color: #666; /* Grau für sekundären Text */
+  font-size: 1.4rem;
   margin: 0;
-  line-height: 1.4; /* Lesbarkeit erhöhen */
+  line-height: 1.4;
 }
 
-/* Responsives Design */
+.stat-emoji{
+  font-size: 5rem !important;
+}
+
 @media (max-width: 768px) {
   .statistics {
-    flex-direction: column; /* Elemente untereinander anordnen */
-    gap: 30px; /* Mehr Abstand zwischen den Items */
+    flex-direction: column;
+    gap: 30px;
   }
 
   .stat-number {
-    font-size: 2rem; /* Zahlen leicht verkleinern */
+    font-size: 2rem;
   }
 
   .stat-item p {
-    font-size: 0.9rem; /* Sekundärtext anpassen */
+    font-size: 0.9rem;
   }
 }

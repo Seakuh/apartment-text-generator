@@ -27,5 +27,10 @@
     "benefit2": "Choose the perfect package for you 🎁",
     "benefit3": "Support at every step of your search 👣",
     "benefit4": "🤖 Exclusive: Our smart AI chatbots with context understanding help you craft perfect messages for landlords and create professional listings. 📝✨"
+  },
+  "statistics": {
+    "satisfiedUsers": "Satisfied Users",
+    "generatedTexts": "Texts Generated",
+    "averageRating": "Average Rating"
   }
 }

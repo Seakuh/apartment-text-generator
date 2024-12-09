@@ -27,5 +27,10 @@
     "benefit2": "Wähle das passende Paket für dich aus 🎁",
     "benefit3": "Unterstützung bei jedem Schritt deiner Suche 👣",
     "benefit4": "🤖 Exklusiv: Unsere intelligenten KI-Chatbots mit Context-Verständnis helfen dir dabei, perfekte Nachrichten an Vermieter zu schreiben und professionelle Inserate zu erstellen. 📝✨"
+  },
+  "statistics": {
+    "satisfiedUsers": "Zufriedene Nutzer",
+    "generatedTexts": "Generierte Texte",
+    "averageRating": "Durchschnittliche Bewertung"
   }
 }
