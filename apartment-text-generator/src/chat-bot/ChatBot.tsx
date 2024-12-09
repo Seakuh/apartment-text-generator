@@ -1,45 +1,75 @@
-import React, { useState } from 'react';
-import './ChatBot.css';
-import UserInfo from './components/UserInfo/UserInfo';
-import Dialog from './components/Dialog/Dialog';
-import Header from '../Header';
-import { handleUserUpdate, sendMessage } from './services/chatBotService';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getUserIdFromToken } from "../context/authService";
+import Header from "../Header";
+import { useToast } from "../Toast/Toast";
+import { fetchUserContext } from "../User/service";
+import "./ChatBot.css";
+import Dialog from "./components/Dialog/Dialog";
+import { sendMessage } from "./services/chatBotService";
+import UserInfo from "./UserInfo";
 
 const ChatBot: React.FC = () => {
-  // Nutzer und Nachrichten State
-  const [userData, setUserData] = useState({
-    name: 'Max Muster',
-    location: 'Berlin',
-    age: 30,
-  });
-
-  const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>([]);
+  const [userData, setUserData] = useState(null);
+  const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>(
+    []
+  );
   const [loading, setLoading] = useState(false);
 
-  // Nutzer-Update verarbeiten
-  const updateUser = async (data: { name: string; location: string; age: number }) => {
-    setUserData(data);
-    await handleUserUpdate(data); // Daten ans Backend senden
-  };
+  const { addToast } = useToast();
+  const navigate = useNavigate();
 
-  // Nachricht senden
+  useEffect(() => {
+    const loadUserData = async () => {
+      const userId = getUserIdFromToken();
+      if (!userId) {
+        addToast("Bitte melde Dich an", "error");
+        navigate("/"); // Navigiere zur Startseite
+        return;
+      }
+
+      try {
+        const context = await fetchUserContext(userId);
+        setUserData(context);
+      } catch (error) {
+        console.error("Fehler beim Laden der Benutzerdaten:", error);
+        addToast("Fehler beim Laden der Benutzerdaten.", "error");
+        navigate("/"); // Navigiere zur Startseite bei Fehler
+      }
+    };
+
+    loadUserData();
+  }, [addToast, navigate]);
+
   const handleSendMessage = async (message: string) => {
     if (!message.trim()) return;
 
     setMessages((prev) => [...prev, { text: message, isUser: true }]);
     setLoading(true);
 
-    const response = await sendMessage(message);
-    setMessages((prev) => [...prev, { text: response, isUser: false }]);
-    setLoading(false);
+    try {
+      const response = await sendMessage(message);
+      setMessages((prev) => [...prev, { text: response, isUser: false }]);
+    } catch (error) {
+      console.error("Fehler beim Senden der Nachricht:", error);
+      addToast("Fehler beim Senden der Nachricht.", "error");
+    } finally {
+      setLoading(false);
+    }
   };
+
+  if (!userData) return <div>Lädt Benutzerdaten...</div>;
 
   return (
     <div className="chatbot-container">
       <Header />
-      <UserInfo initialData={userData} onUpdate={updateUser} />
+      <UserInfo userData={userData} />
       <div className="chatbot-content">
-        <Dialog messages={messages} onSend={handleSendMessage} loading={loading} />
+        <Dialog
+          messages={messages}
+          onSend={handleSendMessage}
+          loading={loading}
+        />
       </div>
     </div>
   );

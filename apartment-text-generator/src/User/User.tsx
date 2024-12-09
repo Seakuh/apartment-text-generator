@@ -1,48 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUserIdFromToken } from "../context/authService";
+import { useUser } from "../context/UserProvider";
+import { useToast } from "../Toast/Toast";
 import { fetchUserContext, updateUserField } from "./service";
 import "./User.css";
 
 const User: React.FC = () => {
+  const { user } = useUser();
+  const { addToast } = useToast();
   const [context, setContext] = useState<any>({});
   const [originalContext, setOriginalContext] = useState<any>({});
   const [loading, setLoading] = useState(true);
-  const userId = getUserIdFromToken();
   const navigate = useNavigate();
+  const userId = getUserIdFromToken();
 
   useEffect(() => {
     if (!userId) {
-      console.error("User not authenticated");
-      navigate("/home-finder/login"); // Weiterleitung zum Login
-
+      addToast("Bitte melden Sie sich an.", "warning");
+      navigate("/home-finder/login");
       return;
     }
 
     const loadContext = async () => {
       try {
-        console.log(userId);
-
         const fetchedContext = await fetchUserContext(userId);
         setContext(fetchedContext);
-        setOriginalContext(fetchedContext); // Kopie für Vergleich speichern
+        setOriginalContext(fetchedContext);
       } catch (error) {
-        console.error("Error fetching user context:", error);
+        console.error("Fehler beim Laden des Benutzerkontexts:", error);
+        addToast("Fehler beim Laden der Daten.", "error");
       } finally {
         setLoading(false);
       }
     };
+
     loadContext();
-  }, [navigate, userId]);
+  }, [user, navigate, addToast]);
 
   const handleFieldChange = (field: string, value: any) => {
     setContext((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleUpdate = async () => {
-    if (!userId) return;
+    if (!user) return;
 
-    // Nur geänderte Felder extrahieren
     const updatedFields = Object.keys(context).reduce((changes, key) => {
       if (context[key] !== originalContext[key]) {
         changes[key] = context[key];
@@ -51,20 +53,25 @@ const User: React.FC = () => {
     }, {} as Record<string, any>);
 
     if (Object.keys(updatedFields).length === 0) {
-      alert("No changes to update.");
+      addToast("Keine Änderungen vorhanden.", "info");
       return;
     }
 
+    console.log(updatedFields);
+
     try {
-      // Geänderte Felder einzeln ans Backend senden
       for (const field in updatedFields) {
-        await updateUserField(userId, field, updatedFields[field]);
+        await updateUserField(
+          getUserIdFromToken()!,
+          field,
+          updatedFields[field]
+        );
       }
-      alert("Preferences updated successfully!");
-      setOriginalContext(context); // Original aktualisieren
+      addToast("Einstellungen erfolgreich aktualisiert!", "success");
+      setOriginalContext(context);
     } catch (error) {
-      console.error("Error updating user context:", error);
-      alert("Failed to update preferences.");
+      console.error("Fehler beim Aktualisieren:", error);
+      addToast("Fehler beim Aktualisieren der Daten.", "error");
     }
   };
 

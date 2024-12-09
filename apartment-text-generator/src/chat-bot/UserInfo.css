@@ -1,0 +1,49 @@
+.user-info-container {
+    margin: 20px;
+    padding: 20px;
+    background: var(--light-gray);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-info-title {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .user-info-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .user-info-card p {
+    margin: 10px 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .edit-profile-button {
+    display: block;
+    width: 100%;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-profile-button:hover {
+    background: #0056b3;
+  }
+  

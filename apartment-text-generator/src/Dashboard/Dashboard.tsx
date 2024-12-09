@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserProvider";
 import "./Dashboard.css";
 
 const Dashboard: React.FC = () => {
+  const { user } = useUser(); // Benutzer aus dem Kontext abrufen
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      // Wenn kein Benutzer angemeldet ist, auf die Startseite weiterleiten
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const apps = [
     {
@@ -16,7 +25,11 @@ const Dashboard: React.FC = () => {
       label: "Inserat generieren",
       route: "/home-finder/generate-inserat",
     },
-    { emoji: "🏠", label: "Meine Cards", route: "/home-finder/my-homes" },
+    {
+      emoji: "🏠",
+      label: "Meine Cards",
+      route: `/home-finder/listings/`, // Dynamische Route mit userId
+    },
     { emoji: "👤", label: "Profil", route: "/home-finder/user" },
     { emoji: "💡", label: "Chat Bot", route: "/home-finder/chat-bot" },
   ];

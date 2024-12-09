@@ -35,10 +35,7 @@ function App() {
                 element={<GenerateInserat />}
               />
 
-              <Route
-                path="/home-finder/listings/:userId"
-                element={<UserListings />}
-              />
+              <Route path="/home-finder/listings" element={<UserListings />} />
             </Route>
             <Route path="/home-finder/login" element={<LoginScreen />} />
           </Routes>

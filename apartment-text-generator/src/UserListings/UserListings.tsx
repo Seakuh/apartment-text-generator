@@ -20,6 +20,8 @@ const UserListings: React.FC = () => {
 
   useEffect(() => {
     const fetchListings = async () => {
+      console.log(user);
+
       if (!user?.token) {
         console.error("No token available. User not authenticated.");
         return;
@@ -41,6 +43,8 @@ const UserListings: React.FC = () => {
         }
 
         const data = await response.json();
+        console.log(data);
+
         setListings(data.listings);
       } catch (error) {
         console.error("Error fetching listings:", error);
