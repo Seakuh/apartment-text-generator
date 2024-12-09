@@ -27,7 +27,7 @@
   
   
   .header.scrolled {
-    backdrop-filter: blur(15px); /* Verstärkter Blur-Effekt */
+    backdrop-filter: blur(8px); /* Verstärkter Blur-Effekt */
   }
   
   .header-left .logo {
@@ -132,7 +132,6 @@
     margin: 0;
     padding: 15px 20px;
     font-size: 1.2rem;
-    font-weight: bold;
     text-align: left;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;

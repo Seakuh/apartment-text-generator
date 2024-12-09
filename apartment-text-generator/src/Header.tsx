@@ -10,6 +10,7 @@ const Header: React.FC = () => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const { user, language, setLanguage, isLoading, logout } = useUser();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleLogoClick = () => {
     navigate(user ? "/home-finder/home" : "/home-finder/");
@@ -39,7 +40,10 @@ const Header: React.FC = () => {
       <div className="header-left" onClick={handleLogoClick}>
         <img src="home_ginue_logo.png" alt="Logo" className="logo" />
       </div>
-      <div className="header-center dancing-script-headline">
+      <div
+        onClick={handleLogoClick}
+        className="header-center dancing-script-headline"
+      >
         <h1>Home Finder</h1>
       </div>
       <div className="header-right">
@@ -83,23 +87,28 @@ const Header: React.FC = () => {
               <>
                 <li onClick={closeBurgerMenu}>
                   <Link to="/home-finder/generate-message">
-                    💬 Nachricht generieren
+                    💬 {t("header.generateMessage")}
                   </Link>
                 </li>
                 <li onClick={closeBurgerMenu}>
                   <Link to="/home-finder/generate-inserat">
-                    📋 Inserat generieren
+                    📋 {t("header.createListing")}
                   </Link>
                 </li>
                 <li onClick={closeBurgerMenu}>
-                  <Link to={`/home-finder/listings/`}>🏠 Meine Listings</Link>
+                  <Link to="/home-finder/chat-bot">
+                    🤖 {t("header.chatbot")}
+                  </Link>
                 </li>
                 <li onClick={closeBurgerMenu}>
-                  <Link to="/home-finder/user">👤 Profil</Link>
+                  <Link to={`/home-finder/listings/`}>
+                    🏠 {t("header.myListings")}
+                  </Link>
                 </li>
                 <li onClick={closeBurgerMenu}>
-                  <Link to="/home-finder/chat-bot">💡 Chat Bot</Link>
+                  <Link to="/home-finder/user">👤 {t("header.profile")}</Link>
                 </li>
+                s
                 <li className="language-button-container">
                   <button
                     className="language-button"

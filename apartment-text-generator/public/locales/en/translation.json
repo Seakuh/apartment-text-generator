@@ -63,5 +63,12 @@
     "error": {
       "default": "Login failed. Please check your credentials."
     }
+  },
+  "header": {
+    "generateMessage": "Generate Message",
+    "createListing": "Create Listing",
+    "myListings": "My Listings",
+    "profile": "Profile",
+    "chatbot": "Chatbot"
   }
 }
