@@ -82,10 +82,13 @@ const UserListings: React.FC = () => {
               <strong>Plattform:</strong>{" "}
               {listing.platform || "Keine Plattform"}
             </p>
-            <p className="generated-message">
-              <strong>Generierter Text:</strong>{" "}
-              {listing.generatedMessage || "Keine Plattform"}
-            </p>
+            <p
+              className="generated-message"
+              dangerouslySetInnerHTML={{
+                __html: listing.generatedMessage || "Keine Nachricht",
+              }}
+            ></p>
+
             <p className="created-date">
               Erstellt am:{" "}
               {new Date(listing.createdAt).toLocaleDateString("de-DE")}
