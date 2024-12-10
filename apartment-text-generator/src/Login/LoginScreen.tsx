@@ -65,7 +65,8 @@ const LoginScreen: React.FC = () => {
           {t("login.button")}
         </button>
         <p className="register-link">
-          {t("login.noAccount")} <a href="/">{t("login.registerLink")}</a>
+          {t("login.noAccount")}{" "}
+          <a href="/home-finder">{t("login.registerLink")}</a>
         </p>
       </form>
     </div>
