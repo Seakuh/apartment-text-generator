@@ -66,7 +66,7 @@ const UserListings: React.FC = () => {
         listings.map((listing, index) => (
           <div key={index} className="listing-card">
             <div className="card-header">
-              <h2>{listing.title || "Kein Titel"}</h2>
+              {/* <h2>{listing.title || "Kein Titel"}</h2> */}
               <a href={listing.link} target="_blank" rel="noopener noreferrer">
                 Zum Inserat
               </a>
