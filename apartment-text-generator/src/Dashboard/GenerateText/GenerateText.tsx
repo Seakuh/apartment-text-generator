@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useUser } from "../../context/UserProvider";
+import { useToast } from "../../Toast/Toast";
+import { generateText } from "../service";
 import "./GenerateText.css";
 import GenerateTextResult, {
   GenerateTextResultProps,
 } from "./GenerateTextResult";
-import { processListing } from "./generateTextService";
 
 const GenerateText: React.FC = () => {
   const { user } = useUser();
+  const { addToast } = useToast();
   const [link, setLink] = useState("");
   const [prompt, setPrompt] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -19,20 +21,46 @@ const GenerateText: React.FC = () => {
 
   const handleSubmit = async () => {
     if (!user?.token) {
-      alert("Bitte einloggen, um fortzufahren.");
+      addToast("Bitte einloggen, um fortzufahren.", "error");
+      return;
+    }
+
+    if (!link) {
+      addToast("Bitte geben Sie einen Link ein!", "warning");
+      return;
+    }
+
+    if (!prompt) {
+      addToast("Bitte geben Sie zusätzliche Informationen ein!", "warning");
+      return;
+    }
+
+    if (!user) {
+      addToast("Benutzer nicht authentifiziert!", "error");
       return;
     }
 
     setLoading(true);
+
     try {
-      const response = await processListing(
+      const response = await generateText(
         {
           link,
           prompt,
         },
         user.token // JWT-Token für Authentifizierung
       );
-      setResultData(response); // Detaillierte Daten speichern
+      const transformedResult: GenerateTextResultProps = {
+        platform: response.platform || "Unknown Platform",
+        link: link,
+        title: response.title || "No Title",
+        description: response.description || "No Description",
+        generatedMessage: response.response,
+        landlordName: response.landlordName || "Unknown",
+        landlordEmail: response.landlordEmail || "Unknown",
+      };
+
+      setResultData(transformedResult);
     } catch (error) {
       console.error("Error processing the listing:", error);
       setResultData(null);
@@ -45,18 +73,6 @@ const GenerateText: React.FC = () => {
     <div className="generate-text">
       <h1>Generiere deine Nachricht</h1>
       <>
-        {/* <div
-          className="drag-drop-area"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={handleFileDrop}
-        >
-          {link ? (
-            <p>Link hinzugefügt: {link}</p>
-          ) : (
-            <p>Drag & Drop oder Link eingeben</p>
-          )}
-        </div> */}
-
         <input
           type="text"
           placeholder="Link einfügen"
@@ -89,14 +105,13 @@ const GenerateText: React.FC = () => {
             landlordName={resultData.landlordName}
             landlordEmail={resultData.landlordEmail}
           />
+          <textarea
+            placeholder="Verbesserungsvorschläge"
+            value={feedback}
+            onChange={(e) => setFeedback(e.target.value)}
+          />
         </>
       )}
-
-      <textarea
-        placeholder="Verbesserungsvorschläge"
-        value={feedback}
-        onChange={(e) => setFeedback(e.target.value)}
-      />
     </div>
   );
 };

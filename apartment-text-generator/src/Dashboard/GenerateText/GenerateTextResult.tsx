@@ -69,7 +69,10 @@ const GenerateTextResult: React.FC<GenerateTextResultProps> = ({
             📋
           </button>
         </div>
-        <p className="generated-message">{generatedMessage}</p>
+        <p
+          className="generated-message"
+          dangerouslySetInnerHTML={{ __html: generatedMessage }}
+        />
       </div>
       <button
         className="to-listings-button"

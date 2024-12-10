@@ -1,24 +1,32 @@
-interface GenerateInseratParams {
-  prompt: string;
-  userId: string;
+interface BackendParams {
+  prompt?: string;
+  userId?: string;
+  link?: string; // Optionaler Parameter nur für 'generateText'
 }
 
-interface GenerateInseratResponse {
+interface BackendResponse {
   response: string;
+  platform?: string;
+  link?: string;
+  title?: string;
+  description?: string; // Beschreibung hinzufügen
+  landlordName?: string;
+  landlordEmail?: string;
 }
 
-export const generateInserat = async (
-  data: GenerateInseratParams,
+const callBackendService = async (
+  endpoint: string,
+  data: BackendParams,
   token: string
-): Promise<GenerateInseratResponse> => {
-  const url = "http://localhost:3000/home-finder/chatbot/generate-inserat";
+): Promise<BackendResponse> => {
+  const url = `http://localhost:3000/home-finder/chatbot/${endpoint}`;
 
   try {
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // JWT-Token in den Header einfügen
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     });
@@ -28,42 +36,21 @@ export const generateInserat = async (
     }
 
     const result = await response.json();
-    return result; // Rückgabe des generierten Inserats
+    return result;
   } catch (error) {
-    console.error("Error in generateInserat:", error);
+    console.error(`Error in ${endpoint}:`, error);
     throw error;
   }
 };
 
-interface ProcessListingParams {
-  link: string;
-  prompt: string;
-}
-
-export const processListing = async (
-  data: ProcessListingParams,
+// Spezifische Aufrufe
+export const generateInserat = (
+  data: BackendParams,
   token: string
-): Promise<string> => {
-  const url = "http://localhost:3000/home-finder/listings/process";
+): Promise<BackendResponse> =>
+  callBackendService("generate-inserat", data, token);
 
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // JWT-Token in den Header einfügen
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const result = await response.json();
-    return result.listing; // Erwartete Antwort anpassen
-  } catch (error) {
-    console.error("Error in processListing:", error);
-    throw error;
-  }
-};
+export const generateText = (
+  data: BackendParams,
+  token: string
+): Promise<BackendResponse> => callBackendService("generate-text", data, token);

@@ -54,7 +54,7 @@ const GenerateInserat: React.FC = () => {
 
   return (
     <div className="generate-inserat-container">
-      <h1>Inserat Generieren 📋</h1>
+      <h1>Generiere dein Inserat 📋</h1>
       <textarea
         className="prompt-input"
         placeholder="Geben Sie hier Ihren Prompt ein..."
