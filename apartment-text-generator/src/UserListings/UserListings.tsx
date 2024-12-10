@@ -19,6 +19,7 @@ const UserListings: React.FC = () => {
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const { addToast } = useToast();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -29,7 +30,7 @@ const UserListings: React.FC = () => {
 
       try {
         const response = await fetch(
-          `http://localhost:3000/home-finder/listings/user`, // Keine userId in der URL
+          `${API_URL}/home-finder/listings/user`, // Keine userId in der URL
           {
             method: "GET",
             headers: {

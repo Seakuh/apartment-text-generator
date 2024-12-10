@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getToken } from "../context/authService";
-
-const BASE_URL = "http://localhost:3000/home-finder/user-context";
+const API_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = `${API_URL}/home-finder/user-context`;
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,

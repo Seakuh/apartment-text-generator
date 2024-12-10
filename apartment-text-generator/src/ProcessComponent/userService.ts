@@ -1,3 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const sendUserData = async (
   email: string,
   prompt: string,
@@ -5,7 +7,7 @@ export const sendUserData = async (
 ) => {
   try {
     const response = await fetch(
-      "http://localhost:3000/home-finder/users/new-user-process", // Verwende die korrekte HTTPS-Domain und Route
+      `${API_URL}/home-finder/users/new-user-process`, // Verwende die korrekte HTTPS-Domain und Route
       {
         method: "POST",
         headers: {

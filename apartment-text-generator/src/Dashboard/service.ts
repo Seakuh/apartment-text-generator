@@ -14,12 +14,14 @@ interface BackendResponse {
   landlordEmail?: string;
 }
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const callBackendService = async (
   endpoint: string,
   data: BackendParams,
   token: string
 ): Promise<BackendResponse> => {
-  const url = `http://localhost:3000/home-finder/chatbot/${endpoint}`;
+  const url = `${API_URL}/home-finder/chatbot/${endpoint}`;
 
   try {
     const response = await fetch(url, {
