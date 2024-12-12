@@ -1,43 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserProvider";
 import "./Dashboard.css";
+import { getMenuItems } from "../menuData";
+import { useTranslation } from "react-i18next";
+import loadingLogo from "/"
 
 const Dashboard: React.FC = () => {
+  const [loading, setLoading] = useState(true); // Ladezustand
   const { user } = useUser(); // Benutzer aus dem Kontext abrufen
   const navigate = useNavigate();
+  const { t } = useTranslation();
+  const items = getMenuItems(t); // Menüeinträge mit Übersetzungen
 
   useEffect(() => {
-    if (!user) {
-      // Wenn kein Benutzer angemeldet ist, auf die Startseite weiterleiten
-      navigate("/");
-    }
+    // Benutzer prüfen und mindestens 1 Sekunde warten
+    const timer = setTimeout(() => {
+      if (!user) {
+        navigate("/home-finder");
+      } else {
+        setLoading(false);
+      }
+    }, 1000); // 1 Sekunde Wartezeit
+
+    return () => clearTimeout(timer); // Timer bereinigen
   }, [user, navigate]);
 
-  const apps = [
-    {
-      emoji: "💬",
-      label: "Nachricht generieren",
-      route: "/home-finder/generate-message",
-    },
-    {
-      emoji: "📋",
-      label: "Inserat generieren",
-      route: "/home-finder/generate-inserat",
-    },
-    {
-      emoji: "📝",
-      label: "Checklist",
-      route: "/home-finder/checklist",
-    },
-    { emoji: "🤖", label: "Chat Bot", route: "/home-finder/chat-bot" },
-    {
-      emoji: "🏠",
-      label: "Meine Cards",
-      route: `/home-finder/listings/`, // Dynamische Route mit userId
-    },
-    { emoji: "👤", label: "Profil", route: "/home-finder/user" },
-  ];
+
+  if (loading) {
+    // Ladeanimation anzeigen, solange der Benutzerzustand geprüft wird
+    return (
+      <div className="loading-container">
+        <img
+          src="public/home_ginue_logo.png"
+          alt="Home Ginue Logo"
+          className="logo"
+        />
+        <p className="loading-text">Lädt...</p>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -54,14 +56,14 @@ const Dashboard: React.FC = () => {
           </p>
         </div>
         <div className="grid">
-          {apps.map((app, index) => (
+          {items.map((item) => (
             <div
-              key={index}
+              key={item.route}
               className="card"
-              onClick={() => navigate(app.route)}
+              onClick={() => navigate(item.route)}
             >
-              <div className="emoji">{app.emoji}</div>
-              <p>{app.label}</p>
+              <div className="emoji">{item.emoji}</div>
+              <p>{item.label}</p>
             </div>
           ))}
         </div>

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next"; // Import von react-i18next
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { useUser } from "./context/UserProvider";
+import { getMenuItems } from "./menuData";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,6 +12,7 @@ const Header: React.FC = () => {
   const { user, language, setLanguage, isLoading, logout } = useUser();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const menuItems = getMenuItems(t); // Menüeinträge mit Übersetzungen
 
   const handleLogoClick = () => {
     navigate(user ? "/home-finder/home" : "/home-finder/");
@@ -85,29 +87,13 @@ const Header: React.FC = () => {
           <ul>
             {user ? (
               <>
-                <li onClick={closeBurgerMenu}>
-                  <Link to="/home-finder/generate-message">
-                    💬 {t("header.generateMessage")}
-                  </Link>
-                </li>
-                <li onClick={closeBurgerMenu}>
-                  <Link to="/home-finder/generate-inserat">
-                    📋 {t("header.createListing")}
-                  </Link>
-                </li>
-                <li onClick={closeBurgerMenu}>
-                  <Link to="/home-finder/chat-bot">
-                    🤖 {t("header.chatbot")}
-                  </Link>
-                </li>
-                <li onClick={closeBurgerMenu}>
-                  <Link to={`/home-finder/listings/`}>
-                    🏠 {t("header.myListings")}
-                  </Link>
-                </li>
-                <li onClick={closeBurgerMenu}>
-                  <Link to="/home-finder/user">👤 {t("header.profile")}</Link>
-                </li>
+                {menuItems.map((item) => (
+                  <li key={item.route} onClick={closeBurgerMenu}>
+                    <Link to={item.route}>
+                      {item.emoji} {item.label}
+                    </Link>
+                  </li>
+                ))}
                 <li className="language-button-container">
                   <button
                     className="language-button"

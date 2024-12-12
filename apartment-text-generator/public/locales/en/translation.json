@@ -70,7 +70,8 @@
     "createListing": "Create Listing",
     "myListings": "My Listings",
     "profile": "Profile",
-    "chatbot": "Chatbot"
+    "chatbot": "Chatbot",
+    "checklist": "Checklist"
   },
   "pricing": {
     "title": "Pricing",
