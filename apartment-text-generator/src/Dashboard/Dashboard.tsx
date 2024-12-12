@@ -25,6 +25,11 @@ const Dashboard: React.FC = () => {
       label: "Inserat generieren",
       route: "/home-finder/generate-inserat",
     },
+    {
+      emoji: "📝",
+      label: "Checklist",
+      route: "/home-finder/checklist",
+    },
     { emoji: "🤖", label: "Chat Bot", route: "/home-finder/chat-bot" },
     {
       emoji: "🏠",

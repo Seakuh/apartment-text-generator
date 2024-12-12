@@ -11,6 +11,7 @@ import LoginScreen from "./Login/LoginScreen";
 import { ToastProvider } from "./Toast/Toast";
 import User from "./User/User";
 import UserListings from "./UserListings/UserListings";
+import Checklist from "./Checklist/Checklist";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/home-finder/chat-bot" element={<ChatBot />} />
               <Route path="/home-finder/user" element={<User />} />
               <Route path="/home-finder/dashboard" element={<Dashboard />} />
+              <Route path="/home-finder/checklist" element={<Checklist />} />
               <Route
                 path="/home-finder/generate-message"
                 element={<GenerateText />}
