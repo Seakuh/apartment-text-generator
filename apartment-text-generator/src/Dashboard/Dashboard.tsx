@@ -4,7 +4,6 @@ import { useUser } from "../context/UserProvider";
 import "./Dashboard.css";
 import { getMenuItems } from "../menuData";
 import { useTranslation } from "react-i18next";
-import loadingLogo from "/"
 
 const Dashboard: React.FC = () => {
   const [loading, setLoading] = useState(true); // Ladezustand
