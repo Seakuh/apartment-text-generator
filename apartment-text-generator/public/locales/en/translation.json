@@ -71,12 +71,23 @@
     "myListings": "My Listings",
     "profile": "Profile",
     "chatbot": "Chatbot",
-    "checklist": "Checklist"
+    "checklist": "Checklist",
+    "finder": "Finder",
+    "platforms": "Platforms"
   },
   "pricing": {
     "title": "Pricing",
     "description": "Choose the plan that suits you best. Whether free or premium – we help you find your dream home.",
     "startButton": "Start now"
+  },
+  "platforms": {
+    "reliability": "⚙️ Reliability",
+    "userFriendliness": "🧑‍💻 User Friendliness",
+    "offerScope": "📦 Scope",
+    "pricePerformance": "💰 Price-Performance",
+    "security": "🔒 Security",
+    "additionalFeatures": "✨ Features",
+    "customerSupport": "📞 Support"
   },
 
   "packages": {

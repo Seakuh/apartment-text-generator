@@ -71,14 +71,24 @@
     "myListings": "Meine Inserate",
     "profile": "Profil",
     "chatbot": "Chatbot",
-    "checklist": "Checkliste"
+    "checklist": "Checkliste",
+    "finder": "Finder",
+    "platforms": "Platformen"
   },
   "pricing": {
     "title": "Preise",
     "description": "Wählen Sie den Plan, der zu Ihnen passt. Ob kostenlos oder Premium – wir helfen Ihnen, Ihre Traumwohnung zu finden.",
     "startButton": "Jetzt starten"
   },
-
+  "platforms": {
+    "reliability": "⚙️ Zuverlässigkeit",
+    "userFriendliness": "🧑‍💻 Benutzerfreundlich",
+    "offerScope": "📦 Umfang",
+    "pricePerformance": "💰 Preis-Leistung",
+    "security": "🔒 Sicherheit",
+    "additionalFeatures": "✨ Funktionen",
+    "customerSupport": "📞 Support"
+  },
   "packages": {
     "free": {
       "name": "Kostenlos",

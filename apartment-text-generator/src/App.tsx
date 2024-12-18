@@ -1,17 +1,19 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Chat from "./Chat";
 import ChatBot from "./chat-bot/ChatBot";
+import Checklist from "./Checklist/Checklist";
 import Dashboard from "./Dashboard/Dashboard";
 import GenerateInserat from "./Dashboard/GenerateInserat/GenerateInserat";
 import GenerateText from "./Dashboard/GenerateText/GenerateText";
+import Finder from "./Finder/Finder";
 import LandingPage from "./Landingpage";
 import { LanguageProvider } from "./LanguageContext";
 import Layout from "./Layout";
 import LoginScreen from "./Login/LoginScreen";
+import Platforms from "./Plattforms/Platforms";
 import { ToastProvider } from "./Toast/Toast";
 import User from "./User/User";
 import UserListings from "./UserListings/UserListings";
-import Checklist from "./Checklist/Checklist";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/home-finder" element={<Layout />}>
               <Route index path="/home-finder/home" element={<Dashboard />} />
+              <Route path="/home-finder/finder" element={<Finder />} />
               <Route path="/home-finder/" element={<LandingPage />} />
               <Route path="/home-finder/login" element={<LoginScreen />} />
               <Route path="/home-finder/chat" element={<Chat />} />
@@ -28,6 +31,7 @@ function App() {
               <Route path="/home-finder/user" element={<User />} />
               <Route path="/home-finder/dashboard" element={<Dashboard />} />
               <Route path="/home-finder/checklist" element={<Checklist />} />
+              <Route path="/home-finder/platforms" element={<Platforms />} />
               <Route
                 path="/home-finder/generate-message"
                 element={<GenerateText />}

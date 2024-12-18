@@ -1,0 +1,96 @@
+/* Plattforms.css */
+.platform-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .platform-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .platform-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .platform-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .platform-hover-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: space-around;
+    transition: opacity 0.3s;
+  }
+  
+  .platform-card:hover .platform-hover-info {
+    opacity: 1;
+  }
+  
+  .metric {
+    text-align: center;
+  }
+  
+  .radial-bar {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .radial-bar svg {
+    transform: rotate(-90deg);
+    width: 100px;
+    height: 100px;
+  }
+  
+  .radial-bar circle {
+    fill: none;
+    stroke: #3DAFAC;
+    stroke-width: 10;
+  }
+  
+  .radial-bar circle:last-child {
+    stroke: #ddd;
+    stroke-linecap: round;
+    stroke-width: 10;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 0.3s;
+  }
+  
+  .metric-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
