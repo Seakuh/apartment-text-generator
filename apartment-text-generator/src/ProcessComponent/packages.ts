@@ -4,14 +4,14 @@ export const useTranslatedPackages = () => {
   const { t } = useTranslation();
 
   return [
-    {
-      id: "free",
-      name: t("packages.free.name"),
-      price: t("packages.free.price"),
-      benefits: t("packages.free.benefits", {
-        returnObjects: true,
-      }) as string[],
-    },
+    // {
+    //   id: "free",
+    //   name: t("packages.free.name"),
+    //   price: t("packages.free.price"),
+    //   benefits: t("packages.free.benefits", {
+    //     returnObjects: true,
+    //   }) as string[],
+    // },
     {
       id: "student",
       name: t("packages.student.name"),
