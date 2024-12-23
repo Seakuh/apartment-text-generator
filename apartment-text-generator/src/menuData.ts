@@ -11,7 +11,7 @@ export const getMenuItems = (t: (key: string) => string): MenuItem[] => [
         route: "/home-finder/generate-message",
     },
     {
-        emoji: "📋",
+        emoji: "📝",
         label: t("header.createListing"),
         route: "/home-finder/generate-inserat",
     },
@@ -35,5 +35,10 @@ export const getMenuItems = (t: (key: string) => string): MenuItem[] => [
         label: t("header.profile"),
         route: "/home-finder/user",
     },
-
+    {
+        emoji: "📋", // Passendes Icon für die Listings
+        label: t("header.allListings"), // Übersetzungs-String für "Alle Listings"
+        route: "/home-finder/all-listings", // Route zur neuen Listings-Seite
+    },
+    
 ];

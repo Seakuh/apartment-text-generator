@@ -1,0 +1,93 @@
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+.card-generated-message {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  border-left: 3px solid #3da5f4;
+  padding-left: 10px;
+}
+
+.card-date {
+  font-size: 14px;
+  color: #999;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.user-info-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.contact-button {
+  align-self: stretch;
+  padding: 10px;
+  background-color: #3da5f4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #3490dc;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 15px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .card-description,
+  .card-generated-message,
+  .user-info {
+    font-size: 13px;
+  }
+
+  .contact-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
