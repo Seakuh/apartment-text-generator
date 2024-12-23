@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ListingsItem.css';
+import UserInfoModal from './UserInfoModal';
 
 interface ListingProps {
   listing: {
@@ -8,15 +9,14 @@ interface ListingProps {
     description: string;
     generatedMessage: string;
     createdAt: string;
-    userAttributes?: {
-      email: string | null;
-      phone: string | null;
-      verified: boolean | null;
-    };
+    userAttributes: Record<string, any>;
   };
 }
 
 const ListingItem: React.FC<ListingProps> = ({ listing }) => {
+  const [isModalOpen, setModalOpen] = useState(true);
+  console.log('userAttributes:', listing.createdAt);
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
@@ -27,27 +27,8 @@ const ListingItem: React.FC<ListingProps> = ({ listing }) => {
     });
   };
 
-  const renderUserInfo = () => {
-    const { userAttributes } = listing;
-    if (!userAttributes) return null;
-
-    return (
-      <div className="user-info">
-        <div className="user-info-item">
-          <span>{userAttributes.email ? '✅' : '❌'}</span>
-          <span>Email verfügbar</span>
-        </div>
-        <div className="user-info-item">
-          <span>{userAttributes.phone ? '✅' : '❌'}</span>
-          <span>Telefon verfügbar</span>
-        </div>
-        <div className="user-info-item">
-          <span>{userAttributes.verified ? '✅' : '❌'}</span>
-          <span>Verifiziert</span>
-        </div>
-      </div>
-    );
-  };
+  const handleModalOpen = () => setModalOpen(true);
+  const handleModalClose = () => setModalOpen(false);
 
   return (
     <div className="card">
@@ -60,8 +41,17 @@ const ListingItem: React.FC<ListingProps> = ({ listing }) => {
       <p className="card-date">
         <strong>Erstellt am:</strong> {formatDate(listing.createdAt)}
       </p>
-      {renderUserInfo()}
-      <button className="contact-button">Kontakt aufnehmen</button>
+      <div className="card-buttons">
+        <button className="contact-button">Kontakt aufnehmen</button>
+        <button className="user-info-button" onClick={handleModalOpen}>
+          Nutzerinfo
+        </button>
+      </div>
+      {/* <UserInfoModal
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+        userAttributes={listing}
+      /> */}
     </div>
   );
 };

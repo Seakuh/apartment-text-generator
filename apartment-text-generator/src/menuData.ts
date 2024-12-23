@@ -6,6 +6,11 @@ interface MenuItem {
 
 export const getMenuItems = (t: (key: string) => string): MenuItem[] => [
     {
+        emoji: "📋", // Passendes Icon für die Listings
+        label: t("header.allListings"), // Übersetzungs-String für "Alle Listings"
+        route: "/home-finder/marketplace", // Route zur neuen Listings-Seite
+    },
+    {
         emoji: "💬",
         label: t("header.generateMessage"),
         route: "/home-finder/generate-message",
@@ -34,11 +39,6 @@ export const getMenuItems = (t: (key: string) => string): MenuItem[] => [
         emoji: "👤",
         label: t("header.profile"),
         route: "/home-finder/user",
-    },
-    {
-        emoji: "📋", // Passendes Icon für die Listings
-        label: t("header.allListings"), // Übersetzungs-String für "Alle Listings"
-        route: "/home-finder/all-listings", // Route zur neuen Listings-Seite
     },
     
 ];

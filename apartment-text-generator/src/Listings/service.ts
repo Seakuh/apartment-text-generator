@@ -22,7 +22,7 @@ export const fetchListings = async (): Promise<any[]> => {
     }
 
     const data = await response.json();
-    console.log('Fetched listings:', data.listings);
+    console.log('Fetched listings:', data);
     return data.listings;
   } catch (error) {
     console.error('Error in fetchListings:', error);
