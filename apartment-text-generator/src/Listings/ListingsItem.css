@@ -1,34 +1,35 @@
-.card {
+.listing-card {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: .7rem;
   align-items: flex-start;
+  max-width: 80%;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover {
+.listing-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card-title {
+.listing-card-title {
   font-size: 18px;
   font-weight: bold;
   color: #333;
   margin: 0;
 }
 
-.card-description {
+.listing-card-description {
   font-size: 16px;
   color: #555;
   margin: 0;
 }
 
-.card-generated-message {
+.listing-card-generated-message {
   font-size: 14px;
   color: #666;
   font-style: italic;
@@ -36,7 +37,7 @@
   padding-left: 10px;
 }
 
-.card-date {
+.listing-card-date {
   font-size: 14px;
   color: #999;
 }
@@ -67,21 +68,26 @@
   transition: background-color 0.3s ease;
 }
 
+.listing-card-buttons {
+  display: flex;
+  gap: 10px;
+}
+
 .contact-button:hover {
   background-color: #3490dc;
 }
 
 @media (max-width: 768px) {
-  .card {
+  .listing-card {
     padding: 15px;
   }
 
-  .card-title {
+  .listing-card-title {
     font-size: 16px;
   }
 
-  .card-description,
-  .card-generated-message,
+  .listing-card-description,
+  .listing-card-generated-message,
   .user-info {
     font-size: 13px;
   }

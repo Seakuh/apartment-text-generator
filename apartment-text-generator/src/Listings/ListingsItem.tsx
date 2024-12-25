@@ -31,17 +31,16 @@ const ListingItem: React.FC<ListingProps> = ({ listing }) => {
   const handleModalClose = () => setModalOpen(false);
 
   return (
-    <div className="card">
-      <h2 className="card-title">{listing.title}</h2>
-      <p className="card-description">{listing.description}</p>
+    <div className="listing-card">
+      <h2 className="listing-card-title">{listing.title}</h2>
       <div
-        className="card-generated-message"
+        className="listing-card-generated-message"
         dangerouslySetInnerHTML={{ __html: listing.generatedMessage }}
       />
-      <p className="card-date">
+      <p className="listing-card-date">
         <strong>Erstellt am:</strong> {formatDate(listing.createdAt)}
       </p>
-      <div className="card-buttons">
+      <div className="listing-card-buttons">
         <button className="contact-button">Kontakt aufnehmen</button>
         <button className="user-info-button" onClick={handleModalOpen}>
           Nutzerinfo
