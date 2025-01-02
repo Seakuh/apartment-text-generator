@@ -15,12 +15,20 @@ type PlatformProps = {
     additionalFeatures: number;
     customerSupport: number;
   };
+  onFavoriteToggle: (name: string, isFavorite: boolean) => void; // Callback für Favoriten
 };
 
-const PlatformCard: React.FC<PlatformProps> = ({ name, link, logo, stats }) => {
+const PlatformCard: React.FC<PlatformProps> = ({
+  name,
+  link,
+  logo,
+  stats,
+  onFavoriteToggle,
+}) => {
   const [bgColor, setBgColor] = useState("#f8f9fa");
   const [filled, setFilled] = useState(false); // Für Animation
   const { t } = useTranslation(); // Zugriff auf i18n
+  const [isFavorite, setIsFavorite] = useState(false);
 
   // Calculate background color based on the logo
   useEffect(() => {
@@ -42,12 +50,21 @@ const PlatformCard: React.FC<PlatformProps> = ({ name, link, logo, stats }) => {
     return "red";
   };
 
+  const toggleFavorite = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Verhindert das Öffnen des Links
+    setIsFavorite(!isFavorite);
+    onFavoriteToggle(name, !isFavorite); // Callback ausführen
+  };
+
   return (
     <div
       className="platform-card"
       onClick={() => window.open(link, "_blank")}
       style={{ backgroundColor: bgColor }}
     >
+      <div className="favorite-icon" onClick={toggleFavorite}>
+        {isFavorite ? "❤️" : "🤍"}
+      </div>
       <img
         className="platform-logo"
         src={logo || "public/home_ginue_logo.png"}

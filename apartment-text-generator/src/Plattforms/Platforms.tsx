@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { platforms } from "./data";
 import PlatformCard from "./PlatformCard";
 import "./Platforms.css";
 
 const Platforms: React.FC = () => {
+  const [favorites, setFavorites] = useState<string[]>([]);
+  const [showFavorites, setShowFavorites] = useState(false);
+
+  const toggleFavorite = (name: string, isFavorite: boolean) => {
+    setFavorites((prev) =>
+      isFavorite ? [...prev, name] : prev.filter((fav) => fav !== name)
+    );
+  };
+
   return (
     <div className="platform-container">
       <div className="platforms-grid">
@@ -22,6 +31,7 @@ const Platforms: React.FC = () => {
               additionalFeatures: platform.additionalFeatures,
               customerSupport: platform.customerSupport,
             }}
+            onFavoriteToggle={toggleFavorite}
           />
         ))}
       </div>

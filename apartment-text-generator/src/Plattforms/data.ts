@@ -22,6 +22,7 @@ export const platforms: Platform[] = [
     security: 95,
     additionalFeatures: 85,
     customerSupport: 92,
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Logo_ImmoScout24.svg/1024px-Logo_ImmoScout24.svg.png",
   },
   {
     name: "Immowelt",
@@ -33,6 +34,7 @@ export const platforms: Platform[] = [
     security: 90,
     additionalFeatures: 82,
     customerSupport: 90,
+    logo: "https://play-lh.googleusercontent.com/D6all3dWgccLFkV9lwuf8RMt7saiBcOUr4powggxcwbyb1dMbuWgHEvnPuCvWVJ-FBgc=w240-h480-rw",
   },
   {
     name: "Immonet",
@@ -44,6 +46,7 @@ export const platforms: Platform[] = [
     security: 88,
     additionalFeatures: 80,
     customerSupport: 85,
+    logo: "https://play-lh.googleusercontent.com/Czd60Aa1aodqv_-6RgDwOLmp91LXMxYCEFQ9k6sz-1Pz9Qvze_hpTU0ZTy8eQautYQ=w240-h480-rw",
   },
   {
     name: "eBay Kleinanzeigen",
@@ -55,6 +58,7 @@ export const platforms: Platform[] = [
     security: 70,
     additionalFeatures: 78,
     customerSupport: 70,
+    logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2023/04/kleinanzeigen-bildmarke.jpg",
   },
   {
     name: "WG-Gesucht.de",

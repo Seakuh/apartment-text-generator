@@ -75,3 +75,19 @@
 .metric-bar-fill.red {
   background-color: rgba(244, 67, 54, 0.6); /* Rot mit Transparenz */
 }
+
+
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+.favorite-icon:hover {
+  transform: scale(1.2);
+}
