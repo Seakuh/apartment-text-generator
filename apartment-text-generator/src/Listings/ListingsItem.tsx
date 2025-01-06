@@ -15,7 +15,7 @@ interface ListingProps {
 
 const ListingItem: React.FC<ListingProps> = ({ listing }) => {
   const [isModalOpen, setModalOpen] = useState(true);
-  console.log('userAttributes:', listing.createdAt);
+  console.log('userAttributes:', listing);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

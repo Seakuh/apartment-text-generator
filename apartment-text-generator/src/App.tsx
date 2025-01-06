@@ -13,6 +13,7 @@ import User from "./User/User";
 import UserListings from "./UserListings/UserListings";
 import Checklist from "./Checklist/Checklist";
 import Listings from "./Listings/Listings";
+import VectorListings from "./VectorListings/VectorListings";
 
 function App() {
   return (
@@ -27,8 +28,8 @@ function App() {
               <Route path="/home-finder/chat" element={<Chat />} />
               <Route path="/home-finder/chat-bot" element={<ChatBot />} />
               <Route path="/home-finder/user" element={<User />} />
-              <Route path="/home-finder/marketplace" element={<Listings />} />
-
+              <Route path="/home-finder/marketplace" element={<VectorListings />} />
+              <Route path="/home-finder/ai-search" element={<VectorListings />} />
               <Route path="/home-finder/dashboard" element={<Dashboard />} />
               <Route path="/home-finder/checklist" element={<Checklist />} />
               <Route
