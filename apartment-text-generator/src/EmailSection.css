@@ -28,6 +28,7 @@
 /* Email Form */
 .email-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -48,6 +49,21 @@
 .email-input:focus {
   border-color: #00ffff;
   box-shadow: 0 0 10px #00ffff;
+}
+
+/* Neon Prompt Input */
+.prompt-input {
+  flex: 1;
+  max-width: 400px;
+  height: 20rem !important;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 0 10px #00ffff;
+  background-color: #ffffff;
+  color: #333;
 }
 
 /* Button Styling */

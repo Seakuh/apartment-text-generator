@@ -4,15 +4,17 @@ import "./EmailSection.css";
 import ProcessComponent from "./ProcessComponent/ProcessComponent";
 
 const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
-  const { t } = useTranslation(); // useTranslation-Hook für Übersetzungen
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
+  const [promptText, setPromptText] = useState("");
   const [processComponent, showProcessComponent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
       console.log(`Email: ${email}`);
-      console.log(`Prompt: ${prompt}`);
+      console.log(`Prompt (headline): ${prompt}`);
+      console.log(`Prompt (input): ${promptText}`);
       showProcessComponent(true);
     }
   };
@@ -27,9 +29,16 @@ const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
         <h2 className="email-prompt">{prompt}</h2>
 
         <form onSubmit={handleSubmit} className="email-form">
+          <textarea
+            placeholder="Beschreibe, was du suchst..."
+            value={promptText}
+            onChange={(e) => setPromptText(e.target.value)}
+            className="prompt-input"
+          />
+
           <input
             type="email"
-            placeholder={t("emailSection.placeholder")} // Übersetzter Placeholder
+            placeholder={t("emailSection.placeholder")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="email-input"
@@ -46,7 +55,11 @@ const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
       {processComponent && (
         <div className="modal-overlay">
           <div className="modal-wrapper">
-            <ProcessComponent email={email} onClose={handleCloseModal} />
+            <ProcessComponent
+              email={email}
+              onClose={handleCloseModal}
+              initialPrompt={promptText}
+            />
           </div>
         </div>
       )}

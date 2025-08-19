@@ -5,11 +5,18 @@ import PromptComponent from "./PromptComponent";
 import SuccessModal from "./SuccessModal";
 import { sendUserData } from "./userService";
 
-const ProcessComponent: React.FC<{ email: string; onClose: () => void }> = ({
+type ProcessComponentProps = {
+  email: string;
+  onClose: () => void;
+  initialPrompt?: string;
+};
+
+const ProcessComponent: React.FC<ProcessComponentProps> = ({
   email,
   onClose,
+  initialPrompt,
 }) => {
-  const [promptData, setPromptData] = useState("");
+  const [promptData, setPromptData] = useState(initialPrompt ?? "");
   const [selectedPackage, setSelectedPackage] = useState<string>("basic");
   const [promptError, setPromptError] = useState(false);
   const [packageError, setPackageError] = useState(false);
@@ -35,15 +42,13 @@ const ProcessComponent: React.FC<{ email: string; onClose: () => void }> = ({
     if (hasError) return;
 
     try {
-      // Hier könnte die Funktion sendUserData aufgerufen werden
       console.log("Server response:", email, promptData, selectedPackage);
       sendUserData(email, promptData, selectedPackage);
-      setShowSuccess(true); // Zeigt das SuccessModal an
+      setShowSuccess(true);
 
-      // Schließt das Modal nach 3 Sekunden, nachdem der SuccessModal angezeigt wurde
       setTimeout(() => {
-        setShowSuccess(false); // SuccessModal ausblenden
-        onClose(); // Modal schließen
+        setShowSuccess(false);
+        onClose();
       }, 8000);
     } catch (error) {
       console.error("Error while sending data to server:", error);
@@ -56,17 +61,17 @@ const ProcessComponent: React.FC<{ email: string; onClose: () => void }> = ({
 
       {!showSuccess && (
         <div className="modal-overlay">
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()} // Verhindert Schließen durch Klick auf Modal
-          >
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={onClose}>
               ✖
             </button>
             <h2 className="modal-title">Dein Profil erstellen</h2>
             <div className="prompt-and-packages">
               <div className={`prompt-container ${promptError ? "error" : ""}`}>
-                <PromptComponent onInputChange={setPromptData} />
+                <PromptComponent
+                  onInputChange={setPromptData}
+                  initialValue={initialPrompt ?? ""}
+                />
                 {promptError && (
                   <p className="error-message">
                     Bitte fülle den Prompt aus, um fortzufahren.

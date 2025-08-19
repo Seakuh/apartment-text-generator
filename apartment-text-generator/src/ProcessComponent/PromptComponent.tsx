@@ -3,15 +3,23 @@ import "./PromptComponent.css";
 
 interface PromptProps {
   onInputChange: (promptData: string) => void;
+  initialValue?: string;
 }
 
-const PromptComponent: React.FC<PromptProps> = ({ onInputChange }) => {
-  const [inputValue, setInputValue] = React.useState("");
+const PromptComponent: React.FC<PromptProps> = ({
+  onInputChange,
+  initialValue = "",
+}) => {
+  const [inputValue, setInputValue] = React.useState(initialValue);
+
+  React.useEffect(() => {
+    setInputValue(initialValue);
+  }, [initialValue]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     setInputValue(value);
-    onInputChange(value); // Übergibt die Eingabe direkt an die übergeordnete Komponente
+    onInputChange(value);
   };
 
   return (
