@@ -39,7 +39,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: apartment-text-generator/dist/ # Der erstellte Build-Ordner
+          local-dir: dist # Der erstellte Build-Ordner
           server-dir: home-finder/ # Subdirectory auf dem Server
           keepalive: 300000 # Setzt die Verbindung auf 5 Minuten Inaktivität
           log-level: verbose
