@@ -16,7 +16,7 @@
   "extraInfo.features.5": "🛠️ Adjustable profile for optimized generations",
   "emailSection": {
     "placeholder": "Your email address",
-    "startButton": "Start now",
+    "startButton": "Find now",
     "description": "📧 Enter your email here to choose a tailored package for you. Additionally, a password will be generated so you can log in to the platform."
   },
   "cta": {
@@ -77,7 +77,7 @@
   "pricing": {
     "title": "Pricing",
     "description": "Choose the plan that suits you best. Whether free or premium – we help you find your dream home.",
-    "startButton": "Start now"
+    "startButton": "Find now"
   },
 
   "packages": {

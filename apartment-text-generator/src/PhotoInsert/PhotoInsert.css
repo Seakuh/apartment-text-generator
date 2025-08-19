@@ -1,0 +1,88 @@
+.photo-insert {
+  width: 300px;
+}
+
+.photo-dropzone {
+  width: 100%;
+  max-width: 820px;
+  border: 2px dashed #00ffff;
+  border-radius: 12px;
+  background: rgba(0, 255, 255, 0.06);
+  cursor: pointer;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+.photo-dropzone.drag-active {
+  background: rgba(0, 255, 255, 0.12);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.8);
+}
+
+.photo-file-input {
+  display: none;
+}
+
+.photo-dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.photo-emoji {
+  font-size: 2rem;
+}
+
+.photo-title {
+  margin: 0;
+  font-weight: 700;
+  color: #0b1f24;
+}
+
+.photo-subtitle {
+  margin: 0;
+  color: #4a6b74;
+  font-size: 0.95rem;
+}
+
+.photo-previews {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.photo-preview-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+}
+
+.photo-preview-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-remove-button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+} 

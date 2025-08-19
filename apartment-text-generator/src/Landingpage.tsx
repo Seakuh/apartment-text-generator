@@ -5,6 +5,7 @@ import FeaturesSection from "./FeatureSection";
 import Footer from "./Footer";
 import HeroSection from "./HeroSection";
 import HowItWorks from "./HowItWorks";
+import PlattformButton from "./PlattformButton/PlattformButton";
 import PricingSection from "./PricingSection";
 import Statistics from "./Statistic";
 
@@ -18,6 +19,7 @@ const LandingPage: React.FC = () => {
       <HeroSection setPrompt={setPrompt} />
       {/* Übergabe des Prompts an die EmailSection */}
       <EmailSection prompt={prompt} />
+      <PlattformButton />
       <CtaComponent />
       <HowItWorks />
       <Statistics />

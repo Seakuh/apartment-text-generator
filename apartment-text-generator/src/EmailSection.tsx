@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./EmailSection.css";
+import PhotoInsert from "./PhotoInsert/PhotoInsert";
 import ProcessComponent from "./ProcessComponent/ProcessComponent";
 
 const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [promptText, setPromptText] = useState("");
+  const [photos, setPhotos] = useState<File[]>([]);
   const [processComponent, showProcessComponent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -15,7 +17,11 @@ const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
       console.log(`Email: ${email}`);
       console.log(`Prompt (headline): ${prompt}`);
       console.log(`Prompt (input): ${promptText}`);
-      showProcessComponent(true);
+      console.log(`Photos: ${photos}`);
+      console.log(
+        "Selected photos:",
+        photos.map((f) => f.name)
+      );
     }
   };
 
@@ -29,6 +35,7 @@ const EmailSection: React.FC<{ prompt: string }> = ({ prompt }) => {
         <h2 className="email-prompt">{prompt}</h2>
 
         <form onSubmit={handleSubmit} className="email-form">
+          <PhotoInsert onFilesChange={setPhotos} maxFiles={8} />
           <textarea
             placeholder="Beschreibe, was du suchst..."
             value={promptText}
