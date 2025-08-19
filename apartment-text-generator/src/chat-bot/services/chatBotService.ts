@@ -11,7 +11,7 @@ export async function handleUserUpdate(data: {
     body: JSON.stringify(data),
   });
 }
-
+// here we go
 export async function sendMessage(message: string): Promise<string> {
   const response = await fetch(`${API_URL}/home-finder/chatbot/send`, {
     method: "POST",
