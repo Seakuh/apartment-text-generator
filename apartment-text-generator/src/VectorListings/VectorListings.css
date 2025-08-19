@@ -1,0 +1,58 @@
+.vector-listings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff; /* Hellblauer Hintergrund */
+  }
+  
+  .search-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+  }
+  
+  .search-container h1 {
+    color: #0077cc; /* Moderner Blauton */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .search-container input[type='text'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  
+  .radio-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .radio-buttons label {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .search-container button {
+    background-color: #0077cc; /* Blau */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .search-container button:hover {
+    background-color: #005fa3; /* Dunkleres Blau beim Hover */
+  }
+  
